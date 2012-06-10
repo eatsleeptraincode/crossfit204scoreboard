@@ -1,0 +1,10 @@
+﻿html
+  head
+	asset for="CrossFit204"
+	write_assets
+	title |CrossFit204 ScoreBoard
+  body
+	h1 |CrossFit204 ScoreBoard
+	link to="AthleteListRequest" text="Athletes"
+	link to="WorkoutListRequest" text="Workouts"
+	section#main use content="view"

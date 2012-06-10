@@ -1,0 +1,5 @@
+﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Athletes.AthleteListViewModel"
+
+ul
+  li |Ryan
+  li |Mike

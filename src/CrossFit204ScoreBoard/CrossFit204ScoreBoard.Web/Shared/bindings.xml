@@ -1,0 +1,5 @@
+﻿<bindings>
+  <element name="link">this.LinkTo&lt;@to&gt;().Text("@text")</element>
+  <element name="asset">#this.Asset("@for");</element>
+  <element name="write_assets">this.WriteAssetTags()</element>
+</bindings>

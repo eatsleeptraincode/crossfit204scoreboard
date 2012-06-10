@@ -1,0 +1,3 @@
+﻿<use namespace="FubuMVC.Core.View" />
+<use namespace="CrossFit204ScoreBoard.Web.Actions.Athletes"/>
+<use namespace="CrossFit204ScoreBoard.Web.Actions.Workouts"/>

@@ -1,0 +1,4 @@
+_ReSharper.*
+*.csproj.user
+bin
+obj
