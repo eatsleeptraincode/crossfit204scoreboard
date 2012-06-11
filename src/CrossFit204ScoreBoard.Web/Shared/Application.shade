@@ -1,10 +1,10 @@
 ﻿html
   head
-	asset for="CrossFit204"
-	write_assets
-	title |CrossFit204 ScoreBoard
+    asset for="CrossFit204"
+    write_assets
+    title |CrossFit204 ScoreBoard
   body
-	h1 |CrossFit204 ScoreBoard
-	h3 |Due to a series of unfortunate events, the data on the scoreboard has been lost.  While I fix everything up, please email me your scores and I will post them on the site until everything is functioning again.
-	a href="mailto:eatsleeptraincode@gmail.com" | eatsleeptraincode@gmail.com
-	section#main use content="view"
+    h1 |CrossFit204 ScoreBoard
+    h3 |Due to a series of unfortunate events, the data on the scoreboard has been lost.  While I fix everything up, please email me your scores and I will post them on the site until everything is functioning again.
+    a href="mailto:eatsleeptraincode@gmail.com" | eatsleeptraincode@gmail.com
+    section#main use content="view"
