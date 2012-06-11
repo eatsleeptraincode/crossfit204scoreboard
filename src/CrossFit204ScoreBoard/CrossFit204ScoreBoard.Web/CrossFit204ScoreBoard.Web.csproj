@@ -113,13 +113,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Actions\Athletes\Athletes.shade" />
-    <None Include="Actions\ScoreBoard.shade" />
-    <None Include="Actions\Workouts\CreateWorkout.shade" />
-    <None Include="Actions\Workouts\Workouts.shade" />
+    <Content Include="Actions\Athletes\Athletes.shade" />
+    <Content Include="Actions\ScoreBoard.shade" />
+    <Content Include="Actions\Workouts\CreateWorkout.shade" />
+    <Content Include="Actions\Workouts\Workouts.shade" />
     <Content Include="main.asset.config" />
-    <None Include="Shared\Application.shade" />
-    <None Include="Shared\_global.spark" />
+    <Content Include="Shared\Application.shade" />
+    <Content Include="Shared\_global.spark" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
