@@ -1,4 +1,12 @@
 ﻿<bindings>
+  <element name="formfor">
+    <start>this.FormFor&lt;@model&gt;()</start>
+    <end>this.EndForm()</end>
+  </element>
+  <element name="edit">this.Edit(m =&gt; m.@property)</element>
+  <element name="show">this.Show(m =&gt; m.@property)</element>
+  <element name="labelfor">this.LabelFor(m =&gt; m.@property)</element>
+  <element name="inputfor">this.InputFor(m =&gt; m.@property)</element>
   <element name="link">this.LinkTo&lt;@to&gt;().Text("@text")</element>
   <element name="asset">#this.Asset("@for");</element>
   <element name="write_assets">this.WriteAssetTags()</element>

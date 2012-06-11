@@ -1,5 +1,5 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Workouts.WorkoutListViewModel"
 
 ul
-  li |Deadlift
-  li |Squat
+  li each="var w in Model.Workouts"
+    =w.Name
