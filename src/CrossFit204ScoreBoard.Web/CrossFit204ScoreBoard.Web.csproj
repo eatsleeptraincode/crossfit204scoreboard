@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\scripts\TwitterWidget.js" />
     <Content Include="Content\styles\bootstrap-responsive.min.css" />
     <Content Include="Content\styles\bootstrap.min.css" />
     <Content Include="Content\styles\CrossFit204.css" />
@@ -136,6 +137,7 @@
   <ItemGroup>
     <Content Include="Actions\Accounts\Register.shade" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

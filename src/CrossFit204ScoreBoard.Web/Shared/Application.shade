@@ -1,19 +1,28 @@
 ﻿html
   head
+	script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"
     asset for="CrossFit204"
 	asset for="bootstrap"
     write_assets
+	
     title |CrossFit204 ScoreBoard
   body
 	.container
-		.row
-		  .span8
-		    h1 |CrossFit204 ScoreBoard
-		    p
-		      link to="AthleteListRequest" text="Athletes"
-		      link to="WorkoutListRequest" text="Workouts"
-		  .span4
-		    link to="RegisterRequest" text="Register"
-		section#main use content="view"
-		footer
-		  a href="mailto:eatsleeptraincode@gmail.com" | eatsleeptraincode@gmail.com
+      .row
+		.span8
+		  h1 |CrossFit204 ScoreBoard
+		  p
+		    link to="AthleteListRequest" text="Athletes"
+		    link to="WorkoutListRequest" text="Workouts"
+		.span4
+		  link to="RegisterRequest" text="Register"
+
+	  .row
+		.span8
+		  section#main use content="view"
+		.span4
+		  script src="/Content/scripts/TwitterWidget.js"
+	  .row
+	    .span12
+		  footer
+		    a href="mailto:eatsleeptraincode@gmail.com" | eatsleeptraincode@gmail.com
