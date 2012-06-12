@@ -1,5 +1,7 @@
 using CrossFit204ScoreBoard.Web.Actions;
+using CrossFit204ScoreBoard.Web.Behaviours;
 using FubuMVC.Core;
+using FubuMVC.Core.Behaviors;
 
 namespace CrossFit204ScoreBoard.Web.Config
 {
@@ -21,6 +23,10 @@ namespace CrossFit204ScoreBoard.Web.Config
                 .ConstrainToHttpMethod(c => c.Method.Name.Equals("Post"), "POST");
 
             Views.TryToAttachWithDefaultConventions();
+
+            Policies
+                .WrapBehaviorChainsWith<RavenTransactionBehaviour>()
+                .WrapBehaviorChainsWith<load_the_current_principal>();
         }
     }
 }

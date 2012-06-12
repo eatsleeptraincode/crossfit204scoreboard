@@ -21,7 +21,6 @@ namespace CrossFit204ScoreBoard.Web.Actions.Workouts
         public FubuContinuation Post(CreateWorkoutViewModel request)
         {
             session.Store(request.Workout);
-            session.SaveChanges();
             return FubuContinuation.RedirectTo(new WorkoutListRequest());
         }
     }

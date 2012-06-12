@@ -1,0 +1,9 @@
+﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Accounts.RegisterViewModel"
+
+formfor model="RegisterViewModel"
+  edit property="Athlete.FirstName"
+  edit property="Athlete.LastName"
+  edit property="Athlete.UserName"
+  edit property="Athlete.Password"
+  edit property="ConfirmPassword"
+  input type="submit" value="Register"
