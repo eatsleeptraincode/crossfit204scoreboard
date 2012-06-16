@@ -28,7 +28,6 @@ namespace CrossFit204ScoreBoard.Web.Actions.Athletes
             athlete.Gender = request.Athlete.Gender;
             return FubuContinuation.RedirectTo(new AthleteDetailsRequest {AthleteId = request.Athlete.Id.Replace("athletes/","")});
         }
-         
     }
 
     public class EditAthleteRequest

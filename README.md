@@ -8,7 +8,6 @@ To Do:
 - Delete Score
 - How does changing athlete info change scoreboard?
 - Search
-- Edit Workout
 - Workout Details
 - Authorization
 - Validation
