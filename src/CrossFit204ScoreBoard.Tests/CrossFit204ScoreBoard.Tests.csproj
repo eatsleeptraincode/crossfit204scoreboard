@@ -96,6 +96,7 @@
     <Compile Include="Behaviours\RavenTransactionBehaviourTest.cs" />
     <Compile Include="Config\HtmlConventionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\EncryptorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
