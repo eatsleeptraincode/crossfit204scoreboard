@@ -1,4 +1,5 @@
 _ReSharper.*
 *.csproj.user
+*.suo
 bin
 obj
