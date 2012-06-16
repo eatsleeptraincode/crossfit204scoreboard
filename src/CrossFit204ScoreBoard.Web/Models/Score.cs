@@ -7,13 +7,13 @@ namespace CrossFit204ScoreBoard.Web.Models
             Time = new Time();
         }
 
-        public Athlete Athlete { get; set; }
+        public string AthleteId { get; set; }
+        public string WorkoutId { get; set; }
 
         public decimal Weight { get; set; }
         public int Reps { get; set; }
         public int Rounds { get; set; }
         public Time Time { get; set; }
-        public Workout Workout { get; set; }
 
         public bool IsBetterThan(Score currentScore)
         {

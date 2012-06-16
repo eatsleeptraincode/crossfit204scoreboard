@@ -4,6 +4,7 @@ using FubuMVC.Core.Security;
 using FubuMVC.StructureMap;
 using Raven.Client;
 using Raven.Client.Document;
+using Raven.Client.Indexes;
 using StructureMap.Configuration.DSL;
 
 namespace CrossFit204ScoreBoard.Web.Config
@@ -23,7 +24,12 @@ namespace CrossFit204ScoreBoard.Web.Config
             SetAllProperties(s => s.Matching(p => p.Name.EndsWith("Settings")));
 
             ForSingletonOf<IDocumentStore>()
-                .Use(new DocumentStore { ConnectionStringName = "RavenDb" }.Initialize());
+                .Use(ctx =>
+                         {
+                             var store = new DocumentStore {ConnectionStringName = "RavenDb"}.Initialize();
+                             IndexCreation.CreateIndexes(typeof (ConfigureFubuMvc).Assembly, store);
+                             return store;
+                         });
 
             For<IDocumentSession>()
                 .Use(ctx => ctx.GetInstance<IDocumentStore>().OpenSession());

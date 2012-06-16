@@ -126,6 +126,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Indexes\ScoreBoardIndex.cs" />
     <Compile Include="Models\Athlete.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Score.cs" />

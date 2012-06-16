@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CrossFit204ScoreBoard.Web.Indexes;
 using CrossFit204ScoreBoard.Web.Models;
 using Raven.Client;
+using Raven.Client.Linq;
 
 namespace CrossFit204ScoreBoard.Web.Actions
 {
@@ -16,7 +18,7 @@ namespace CrossFit204ScoreBoard.Web.Actions
 
         public ScoreBoardViewModel Get(ScoreBoardRequest request)
         {
-            var workouts = session.Query<Score>().ToList().GroupBy(s => s.Workout);
+            var workouts = session.Query<Score, ScoreBoardIndex>().As<ScoreDisplay>().ToList().GroupBy(s => s.Workout);
 
             var items = new List<ScoreBoardItem>();
         

@@ -26,22 +26,20 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
         public FubuContinuation Post(LogScoreViewModel request)
         {
             var athleteId = request.AthleteId;
-            var athlete = session.Load<Athlete>(athleteId);
-            var workout = session.Load<Workout>(request.Workout.Id);
-            var currentScore = session.Query<Score>().SingleOrDefault(s => s.Athlete.Id == athleteId);
+            var currentScore = session.Query<Score>().SingleOrDefault(s => s.AthleteId == athleteId);
             if (currentScore == null)
             {
                 Score score = request.Score;
-                score.Athlete = athlete;
-                score.Workout = workout;
+                score.AthleteId = athleteId;
+                score.WorkoutId = request.Workout.Id;
                 session.Store(score);
             }
             else if (request.Score.IsBetterThan(currentScore))
             {
                 session.Delete(currentScore);
                 Score score = request.Score;
-                score.Athlete = athlete;
-                score.Workout = workout;
+                score.AthleteId = athleteId;
+                score.WorkoutId = request.Workout.Id;
                 session.Store(score);
             }
 
