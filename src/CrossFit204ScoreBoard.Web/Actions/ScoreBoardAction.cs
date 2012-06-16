@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using CrossFit204ScoreBoard.Web.Models;
 using Raven.Client;
 
@@ -15,14 +16,20 @@ namespace CrossFit204ScoreBoard.Web.Actions
 
         public ScoreBoardViewModel Get(ScoreBoardRequest request)
         {
-            var scores = session.Query<Score>();
-            return new ScoreBoardViewModel {Scores = scores};
+            var workouts = session.Query<Score>().ToList().GroupBy(s => s.WorkoutName);
+
+            var items = new List<ScoreBoardItem>();
+        
+            foreach (var workout in workouts)
+                items.Add(new ScoreBoardItem(workout.Key, workout.ToList()));
+
+            return new ScoreBoardViewModel {Items = items};
         }
     }
 
     public class ScoreBoardRequest {}
 
     public class ScoreBoardViewModel {
-        public IQueryable<Score> Scores { get; set; }
+        public IEnumerable<ScoreBoardItem> Items { get; set; }
     }
 }

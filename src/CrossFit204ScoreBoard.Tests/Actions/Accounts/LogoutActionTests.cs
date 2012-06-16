@@ -15,7 +15,7 @@ namespace CrossFit204ScoreBoard.Tests.Actions.Accounts
 
         protected override void beforeEach()
         {
-            result = ClassUnderTest.Post(new LogoutRequest());
+            result = ClassUnderTest.Get(new LogoutRequest());
         }
 
         [Test]

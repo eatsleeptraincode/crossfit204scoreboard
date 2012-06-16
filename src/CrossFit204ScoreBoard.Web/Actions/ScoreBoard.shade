@@ -2,9 +2,18 @@
 
 
 ul
-	li each="var s in Model.Scores"
-		=s.WorkoutName
-		=s.AthleteFirstName
-		=s.AthleteLastName
-		=s.Weight
+	li each="var i in Model.Items"
+		=i.WorkoutName
+		p |Men
+		ol
+			li each="var s in i.MenScores"
+				=s.Athlete.FirstName + " " + s.Athlete.LastName
+				=s.Weight
+		p |Women
+		ol
+			li each="var s in i.WomenScores"
+				=s.Athlete.FirstName + " " + s.Athlete.LastName				
+				=s.Weight
+
+		
 

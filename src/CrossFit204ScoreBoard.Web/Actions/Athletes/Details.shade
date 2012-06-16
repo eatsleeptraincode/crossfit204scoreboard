@@ -3,11 +3,6 @@
 =Model.Athlete.FirstName + " " + Model.Athlete.LastName
 
 ul
-	li each="var s in Model.Scores"
-		=s.WorkoutName
-		=s.Weight
-		=s.Reps
-		=s.Rounds
-		=s.Time.Minutes
-		=s.Time.Seconds
+	li each="var w in Model.Workouts"
+		=w.Name
 		

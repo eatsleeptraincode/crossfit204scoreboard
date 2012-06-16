@@ -1,8 +1,7 @@
 namespace CrossFit204ScoreBoard.Web.Models
 {
-    public class Workout
+    public class Workout : Entity
     {
-        public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool TrackTime { get; set; }

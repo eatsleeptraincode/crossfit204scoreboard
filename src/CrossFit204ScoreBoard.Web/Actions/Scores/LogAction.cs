@@ -18,25 +18,18 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
         public LogScoreViewModel Get(LogScoreRequest request)
         {
             var athleteId = FubuPrincipal.Current.User.Id;
-            var workoutId = request.WorkoutId;
-            return new LogScoreViewModel { AthleteId = athleteId, WorkoutId = workoutId };
+            var workout = session.Load<Workout>("workouts/" + request.WorkoutId);
+            return new LogScoreViewModel { AthleteId = athleteId, Workout = workout, Score = new Score() };
         }
 
         public FubuContinuation Post(LogScoreViewModel request)
         {
             var athleteId = request.AthleteId;
             var athlete = session.Load<Athlete>(athleteId);
-            var workoutId = "workouts/" + request.WorkoutId;
-            var workout = session.Load<Workout>(workoutId);
-            var score = new Score
-                            {
-                                AthleteFirstName = athlete.FirstName,
-                                AthleteLastName = athlete.LastName,
-                                AthleteId = athlete.Id,
-                                WorkoutId = workout.Id,
-                                WorkoutName = workout.Name
-                            };
-            session.Store(score);
+            var workout = session.Load<Workout>(request.Workout.Id);
+            request.Score.Athlete = athlete;
+            request.Score.WorkoutName = workout.Name;
+            session.Store(request.Score);
             return FubuContinuation.RedirectTo(new ScoreBoardRequest());
         }
     }
@@ -50,7 +43,16 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
     public class LogScoreViewModel
     {
         public string AthleteId { get; set; }
-        public string WorkoutId { get; set; }
+        public Workout Workout { get; set; }
         public decimal Points { get; set; }
+        public Score Score { get; set; }
+    }
+
+    public static class Extensions
+    {
+        public static string RavenId<T>(T entity) where T : Entity
+        {
+            return typeof (T).Name.ToLower() + "/" + entity.Id;
+        }
     }
 }

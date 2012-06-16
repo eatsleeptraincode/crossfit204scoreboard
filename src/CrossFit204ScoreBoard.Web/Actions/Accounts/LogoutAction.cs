@@ -12,7 +12,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Accounts
             this.authContext = authContext;
         }
 
-        public FubuContinuation Post(LogoutRequest request)
+        public FubuContinuation Get(LogoutRequest request)
         {
             authContext.SignOut();
             return FubuContinuation.RedirectTo(new ScoreBoardRequest());
