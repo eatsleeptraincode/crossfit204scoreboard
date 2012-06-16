@@ -30,7 +30,6 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
             var workout = session.Load<Workout>(workoutId);
             var score = new Score
                             {
-                                Points = request.Points,
                                 AthleteFirstName = athlete.FirstName,
                                 AthleteLastName = athlete.LastName,
                                 AthleteId = athlete.Id,

@@ -6,5 +6,5 @@ ul
 		=s.WorkoutName
 		=s.AthleteFirstName
 		=s.AthleteLastName
-		=s.Points
+		=s.Weight
 

@@ -3,6 +3,7 @@
 formfor model="RegisterViewModel"
 	edit property="Athlete.FirstName"
 	edit property="Athlete.LastName"
+	edit property="Athlete.Gender"
 	edit property="Athlete.UserName"
 	edit property="Athlete.Password"
 	edit property="ConfirmPassword"

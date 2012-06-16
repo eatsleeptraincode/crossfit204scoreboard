@@ -1,5 +1,5 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Athletes.AthleteListViewModel"
 
 ul
-	li each="var w in Model.Athletes"
-		=w.FirstName
+	li each="var a in Model.Athletes"
+		=this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id.Replace("athletes/","")}).Text(a.FirstName + " " + a.LastName)

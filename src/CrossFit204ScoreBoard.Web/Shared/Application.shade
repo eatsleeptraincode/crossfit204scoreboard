@@ -10,13 +10,14 @@
 			.row
 				.span8
 					h1 |CrossFit204 ScoreBoard
-					p
-						link to="AthleteListRequest" text="Athletes"
-						link to="WorkoutListRequest" text="Workouts"
 				.span4
 					link to="LoginRequest" text="Login"
 					link to="RegisterRequest" text="Register"
 					link to="LogoutRequest" text="Logout"
+			.row
+				.span12
+					link to="AthleteListRequest" text="Athletes"
+					link to="WorkoutListRequest" text="Workouts"
 			.row
 				.span12
 					section#main use content="view"

@@ -45,6 +45,10 @@
     <Reference Include="FubuTestingSupport">
       <HintPath>..\packages\FubuTestingSupport.0.9.9.153\lib\FubuTestingSupport.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlTags, Version=1.1.0.73, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HtmlTags.1.1.0.73\lib\4.0\HtmlTags.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.4.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -79,10 +83,15 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\Accounts\LogoutActionTests.cs" />
+    <Compile Include="Actions\Accounts\RegisterActionTests.cs" />
     <Compile Include="Actions\Workouts\CreateActionTests.cs" />
     <Compile Include="Actions\Workouts\ListActionTests.cs" />
+    <Compile Include="Behaviours\RavenTransactionBehaviourTest.cs" />
+    <Compile Include="Config\HtmlConventionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
