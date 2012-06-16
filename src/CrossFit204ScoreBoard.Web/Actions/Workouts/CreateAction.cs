@@ -15,7 +15,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Workouts
 
         public CreateWorkoutViewModel Get(CreateWorkoutRequest request)
         {
-            return new CreateWorkoutViewModel();
+            return new CreateWorkoutViewModel {Workout = new Workout()};
         }
 
         public FubuContinuation Post(CreateWorkoutViewModel request)

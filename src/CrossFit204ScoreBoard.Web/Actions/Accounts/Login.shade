@@ -1,0 +1,6 @@
+﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Accounts.LoginViewModel"
+
+formfor model="LoginViewModel"
+	edit property="Athlete.UserName"
+	edit property="Athlete.Password"
+	input type="submit" value="Login"

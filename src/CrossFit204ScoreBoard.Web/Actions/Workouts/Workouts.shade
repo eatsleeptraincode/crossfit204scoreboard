@@ -1,5 +1,6 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Workouts.WorkoutListViewModel"
 
 ul
-  li each="var w in Model.Workouts"
-    =w.Name
+	li each="var w in Model.Workouts"
+		=w.Name
+		=this.LinkTo(new LogScoreRequest{WorkoutId = w.Id.Replace("workouts/","")}).Text("Log Score")

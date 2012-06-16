@@ -1,6 +1,10 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Workouts.CreateWorkoutViewModel"
 
 formfor model="CreateWorkoutViewModel"
-  edit property="Workout.Name"
-  edit property="Workout.Description"
-  input type="submit" value="Create Workout"
+	edit property="Workout.Name"
+	edit property="Workout.Description"
+	edit property="Workout.TrackTime"
+	edit property="Workout.TrackWeight"
+	edit property="Workout.TrackReps"
+	edit property="Workout.TrackRounds"
+	input type="submit" value="Create Workout"

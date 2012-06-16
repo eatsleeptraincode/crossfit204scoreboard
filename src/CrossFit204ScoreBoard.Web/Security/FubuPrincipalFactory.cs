@@ -9,6 +9,7 @@ namespace CrossFit204ScoreBoard.Web.Security
     public class FubuPrincipalFactory : IPrincipalFactory
     {
         readonly IDocumentSession session;
+
         public FubuPrincipalFactory(IDocumentSession session)
         {
             this.session = session;

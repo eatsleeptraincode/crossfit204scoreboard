@@ -1,0 +1,7 @@
+﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Scores.LogScoreViewModel"
+
+formfor model="LogScoreViewModel"
+	inputfor property="AthleteId"
+	inputfor property="WorkoutId"
+	edit property="Points"
+	input type="submit" text="Log Score"

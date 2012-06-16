@@ -1,2 +1,10 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.ScoreBoardViewModel"
 
+
+ul
+	li each="var s in Model.Scores"
+		=s.WorkoutName
+		=s.AthleteFirstName
+		=s.AthleteLastName
+		=s.Points
+

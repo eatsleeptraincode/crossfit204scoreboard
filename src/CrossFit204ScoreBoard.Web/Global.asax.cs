@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web;
+using Bottles;
 using CrossFit204ScoreBoard.Web.Config;
 using FubuMVC.Core;
 using FubuMVC.StructureMap;
@@ -15,6 +16,8 @@ namespace CrossFit204ScoreBoard.Web
                 .For<ConfigureFubuMvc>()
                 .StructureMap(() => new Container(x => x.IncludeRegistry<ConfigureStructureMap>()))
                 .Bootstrap();
+
+            PackageRegistry.AssertNoFailures();
         }
     }
 }

@@ -23,13 +23,11 @@ namespace CrossFit204ScoreBoard.Web.Security
 
         public static FubuPrincipal Current
         {
-            get
-            {
-                if (HttpContext.Current != null)
-                {
-                    return HttpContext.Current.User as FubuPrincipal;
-                }
-                return Thread.CurrentPrincipal as FubuPrincipal;
+            get {
+                var principal =  HttpContext.Current != null
+                    ? HttpContext.Current.User
+                    : Thread.CurrentPrincipal;
+                return principal as FubuPrincipal;
             }
         }
 

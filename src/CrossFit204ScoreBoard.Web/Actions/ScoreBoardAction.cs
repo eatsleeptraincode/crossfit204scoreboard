@@ -1,14 +1,28 @@
-﻿namespace CrossFit204ScoreBoard.Web.Actions
+﻿using System.Linq;
+using CrossFit204ScoreBoard.Web.Models;
+using Raven.Client;
+
+namespace CrossFit204ScoreBoard.Web.Actions
 {
     public class ScoreBoardAction
     {
-        public ScoreBoardViewModel Get(ScoreBoardReqeust request)
+        private readonly IDocumentSession session;
+
+        public ScoreBoardAction(IDocumentSession session)
         {
-            return new ScoreBoardViewModel();
+            this.session = session;
+        }
+
+        public ScoreBoardViewModel Get(ScoreBoardRequest request)
+        {
+            var scores = session.Query<Score>();
+            return new ScoreBoardViewModel {Scores = scores};
         }
     }
 
-    public class ScoreBoardReqeust {}
+    public class ScoreBoardRequest {}
 
-    public class ScoreBoardViewModel {}
+    public class ScoreBoardViewModel {
+        public IQueryable<Score> Scores { get; set; }
+    }
 }

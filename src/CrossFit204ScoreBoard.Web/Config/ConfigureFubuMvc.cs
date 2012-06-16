@@ -14,7 +14,7 @@ namespace CrossFit204ScoreBoard.Web.Config
             Actions.IncludeTypesNamed(n => n.EndsWith("Action"));
 
             Routes
-                .HomeIs<ScoreBoardReqeust>()
+                .HomeIs<ScoreBoardRequest>()
                 .IgnoreNamespaceForUrlFrom<UrlRoot>()
                 .IgnoreClassSuffix("Action")
                 .IgnoreMethodsNamed("Get")
@@ -23,6 +23,8 @@ namespace CrossFit204ScoreBoard.Web.Config
                 .ConstrainToHttpMethod(c => c.Method.Name.Equals("Post"), "POST");
 
             Views.TryToAttachWithDefaultConventions();
+
+            HtmlConvention<ConfigureHtmlConventions>();
 
             Policies
                 .WrapBehaviorChainsWith<RavenTransactionBehaviour>()
