@@ -5,12 +5,12 @@ namespace CrossFit204ScoreBoard.Web.Models
 {
     public class ScoreBoardItem
     {
-        public string WorkoutName { get; private set; }
+        public Workout Workout { get; private set; }
         private readonly List<Score> scores;
 
-        public ScoreBoardItem(string workoutName, List<Score> scores)
+        public ScoreBoardItem(Workout workout, List<Score> scores)
         {
-            WorkoutName = workoutName;
+            Workout = workout;
             this.scores = scores;
         }
 

@@ -3,17 +3,29 @@
 
 ul
 	li each="var i in Model.Items"
-		=i.WorkoutName
+		=i.Workout.Name
 		p |Men
 		ol
 			li each="var s in i.MenScores"
 				=s.Athlete.FirstName + " " + s.Athlete.LastName
-				=s.Weight
+				test if="i.Workout.TrackWeight"
+					=s.Weight
+				test if="i.Workout.TrackTime"
+				test if="i.Workout.TrackRounds"
+					s.Rounds
+				test if="i.Workout.TrackReps"
+					s.Reps
 		p |Women
 		ol
 			li each="var s in i.WomenScores"
-				=s.Athlete.FirstName + " " + s.Athlete.LastName				
-				=s.Weight
+				=s.Athlete.FirstName + " " + s.Athlete.LastName
+				test if="i.Workout.TrackWeight"
+					=s.Weight
+				test if="i.Workout.TrackTime"
+				test if="i.Workout.TrackRounds"
+					s.Rounds
+				test if="i.Workout.TrackReps"
+					s.Reps
 
 		
 

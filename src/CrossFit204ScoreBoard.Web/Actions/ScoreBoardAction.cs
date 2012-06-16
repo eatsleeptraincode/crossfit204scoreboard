@@ -16,7 +16,7 @@ namespace CrossFit204ScoreBoard.Web.Actions
 
         public ScoreBoardViewModel Get(ScoreBoardRequest request)
         {
-            var workouts = session.Query<Score>().ToList().GroupBy(s => s.WorkoutName);
+            var workouts = session.Query<Score>().ToList().GroupBy(s => s.Workout);
 
             var items = new List<ScoreBoardItem>();
         
@@ -29,7 +29,8 @@ namespace CrossFit204ScoreBoard.Web.Actions
 
     public class ScoreBoardRequest {}
 
-    public class ScoreBoardViewModel {
+    public class ScoreBoardViewModel
+    {
         public IEnumerable<ScoreBoardItem> Items { get; set; }
     }
 }

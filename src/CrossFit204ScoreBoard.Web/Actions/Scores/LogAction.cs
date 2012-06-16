@@ -1,4 +1,5 @@
-﻿using CrossFit204ScoreBoard.Web.Models;
+﻿using System.Linq;
+using CrossFit204ScoreBoard.Web.Models;
 using CrossFit204ScoreBoard.Web.Security;
 using FubuMVC.Core;
 using FubuMVC.Core.Continuations;
@@ -27,9 +28,23 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
             var athleteId = request.AthleteId;
             var athlete = session.Load<Athlete>(athleteId);
             var workout = session.Load<Workout>(request.Workout.Id);
-            request.Score.Athlete = athlete;
-            request.Score.WorkoutName = workout.Name;
-            session.Store(request.Score);
+            var currentScore = session.Query<Score>().SingleOrDefault(s => s.Athlete.Id == athleteId);
+            if (currentScore == null)
+            {
+                Score score = request.Score;
+                score.Athlete = athlete;
+                score.Workout = workout;
+                session.Store(score);
+            }
+            else if (request.Score.IsBetterThan(currentScore))
+            {
+                session.Delete(currentScore);
+                Score score = request.Score;
+                score.Athlete = athlete;
+                score.Workout = workout;
+                session.Store(score);
+            }
+
             return FubuContinuation.RedirectTo(new ScoreBoardRequest());
         }
     }
