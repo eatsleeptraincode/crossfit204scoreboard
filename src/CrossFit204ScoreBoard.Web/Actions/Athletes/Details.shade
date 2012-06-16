@@ -1,8 +1,10 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Athletes.AthleteDetailsViewModel"
 
 =Model.Athlete.FirstName + " " + Model.Athlete.LastName
+=this.LinkTo(new EditAthleteRequest{AthleteId = Model.Athlete.Id.Replace("athletes/","")}).Text("Update")
 
 ul
 	li each="var w in Model.Workouts"
 		=w.Name
+		
 		

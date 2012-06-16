@@ -1,0 +1,9 @@
+﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Athletes.EditAthleteViewModel"
+
+formfor model="EditAthleteViewModel"
+	edit property="Athlete.FirstName"
+	edit property="Athlete.LastName"
+	edit property="Athlete.Gender"
+	inputfor property="Athlete.Id"
+	input type="submit" value="Update"
+		
