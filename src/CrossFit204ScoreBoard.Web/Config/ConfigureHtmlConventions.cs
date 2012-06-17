@@ -20,6 +20,7 @@ namespace CrossFit204ScoreBoard.Web.Config
             Editors.IfPropertyIs<Gender>().BuildBy(HtmlBuilders.GenderBuilder);
             Editors.IfPropertyIs<bool>().BuildBy(HtmlBuilders.CheckBoxBuilder);
             Editors.IfPropertyIs<Time>().BuildBy(HtmlBuilders.TimeBuilder);
+            Editors.ModifyForAttribute<RequiredAttribute>(t => t.AddClass("required"));
             UseLabelAndFieldLayout<BasicLayout>();
         }
     }

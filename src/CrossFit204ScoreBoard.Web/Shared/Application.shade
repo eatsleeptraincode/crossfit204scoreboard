@@ -2,6 +2,7 @@
 	head
 		asset for="bootstrap"
 		asset for="main"
+		asset for="validate"
 		write_assets
 	
 		title |CrossFit204 ScoreBoard
