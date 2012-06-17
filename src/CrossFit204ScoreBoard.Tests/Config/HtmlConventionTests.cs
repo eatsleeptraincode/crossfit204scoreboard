@@ -17,9 +17,9 @@ namespace CrossFit204ScoreBoard.Tests.Config
         {
             var accessor = ReflectionHelper.GetAccessor<Athlete>(a => a.Gender);
             var locator = MockRepository.GenerateStub<IServiceLocator>();
-            var request = new ElementRequest(new object(), accessor, locator);
+            var request = new ElementRequest(new Athlete{Gender = Gender.Female}, accessor, locator);
             var tag = HtmlBuilders.GenderBuilder(request);
-            tag.ToString().ShouldEqual("<select><option value=\"Male\">Male</option><option value=\"Female\">Female</option></select>");
+            tag.ToString().ShouldEqual("<select><option value=\"Male\">Male</option><option value=\"Female\" selected=\"selected\">Female</option></select>");
         } 
     }
 

@@ -49,7 +49,7 @@ namespace CrossFit204ScoreBoard.Web.Config
             var tag = new SelectTag(t =>
                                         {
                                             genders.Each(g => t.Option(g.ToString(), g));
-                                            t.DefaultOption((request.RawValue ?? Gender.Male).ToString());
+                                            t.SelectByValue((request.RawValue ?? Gender.Male).ToString());
                                         });
             return tag;
         }
