@@ -22,6 +22,10 @@
 			br
 			br
 			.row
+				.span4
+					validation_errors
+				.span8
+			.row
 				.span12
 					section#main use content="view"
 			.row

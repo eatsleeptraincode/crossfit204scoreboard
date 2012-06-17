@@ -1,16 +1,17 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Accounts.RegisterViewModel"
 
 formfor model="RegisterViewModel"
-	edit property="Athlete.FirstName"
-	br
-	edit property="Athlete.LastName"
-	br
-	edit property="Athlete.Gender"
-	br
-	edit property="Athlete.UserName"
-	br
-	edit property="Athlete.Password"
-	br
-	edit property="ConfirmPassword"
-	br
-	input.btn.btn-inverse type="submit" value="Register"
+	fieldset
+		edit property="Athlete.FirstName"
+		br
+		edit property="Athlete.LastName"
+		br
+		edit property="Athlete.Gender"
+		br
+		edit property="Athlete.UserName"
+		br
+		edit property="Athlete.Password"
+		br
+		edit property="ConfirmPassword"
+		br
+		input.btn.btn-inverse type="submit" value="Register"

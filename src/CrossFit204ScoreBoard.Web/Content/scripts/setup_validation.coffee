@@ -1,2 +1,2 @@
 ﻿$ ->
-  $('#mainForm').validate()
+  $('#mainForm').validate(errorClass:'alert-error')

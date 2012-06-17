@@ -7,6 +7,7 @@ using FubuCore.Reflection;
 using FubuMVC.Core.UI;
 using FubuMVC.Core.UI.Configuration;
 using FubuMVC.Core.UI.Forms;
+using FubuValidation;
 using HtmlTags;
 
 namespace CrossFit204ScoreBoard.Web.Config
@@ -38,7 +39,7 @@ namespace CrossFit204ScoreBoard.Web.Config
 
         public override string ToString()
         {
-            return "{0}\n{1}".ToFormat(LabelTag, BodyTag);
+            return "{0}{1}".ToFormat(LabelTag, BodyTag);
         }
     }
 
@@ -60,6 +61,7 @@ namespace CrossFit204ScoreBoard.Web.Config
             var isChecked = request.Value<bool>();
             var tag = new CheckboxTag(isChecked);
             tag.Attr("name", request.Accessor.Name);
+            tag.AddClass("checkbox");
             return tag;
         }
 

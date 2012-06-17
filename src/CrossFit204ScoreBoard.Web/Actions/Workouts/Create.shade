@@ -7,7 +7,7 @@ formfor model="CreateWorkoutViewModel"
 	br
 	edit property="Workout.TrackTime"
 	br
-	edit property="Workout.TrackWeight"
+	edit property="Workout.TrackWeight" 
 	br
 	edit property="Workout.TrackReps"
 	br

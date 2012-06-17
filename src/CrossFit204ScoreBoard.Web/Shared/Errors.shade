@@ -1,0 +1,6 @@
+﻿use master=""
+viewdata model="FubuValidation.Notification"
+
+ul.unstyled if="Model.AllMessages.Any()"
+	li.alert.alert-error each="var msg in Model.AllMessages"
+		=msg

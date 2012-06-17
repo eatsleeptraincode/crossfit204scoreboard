@@ -1,7 +1,10 @@
 ﻿using CrossFit204ScoreBoard.Web.Security;
+using CrossFit204ScoreBoard.Web.Validation;
 using FubuCore.Configuration;
 using FubuMVC.Core.Security;
 using FubuMVC.StructureMap;
+using FubuValidation;
+using FubuValidation.StructureMap;
 using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Indexes;
@@ -18,6 +21,7 @@ namespace CrossFit204ScoreBoard.Web.Config
                          s.TheCallingAssembly();
                          s.WithDefaultConventions();
                          s.Convention<SettingsScanner>();
+                         s.ConnectImplementationsToTypesClosing(typeof (ModelRule<>));
                      });
 
             For<ISettingsProvider>().Use<AppSettingsProvider>();
@@ -36,6 +40,10 @@ namespace CrossFit204ScoreBoard.Web.Config
 
             For<IPrincipalFactory>()
                 .Use<FubuPrincipalFactory>();
+
+            this.FubuValidation();
+
+            For<IValidationSource>().Add<RuleSource>();
         }
     }
 }

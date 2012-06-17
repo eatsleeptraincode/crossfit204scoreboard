@@ -1,0 +1,51 @@
+﻿<html>
+<head>
+    <link href="/_content/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/_content/styles/main.css" rel="stylesheet" type="text/css" />
+    <link href="/_content/styles/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/_content/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/_content/scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/_content/scripts/setup_validation.coffee"></script>
+    <title>CrossFit204 ScoreBoard</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <h1>
+                    <a href="/">CrossFit204 ScoreBoard</a></h1>
+            </div>
+            <div class="span4">
+                <div class="login">
+                    <a href="/accounts/login">Login</a><a href="/accounts/register">Register</a></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <nav class="navbar"><a href="/athletes/list">Athletes</a><a href="/workouts/list">Workouts</a></nav>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="span4">
+            </div>
+            <div class="span8" />
+        </div>
+        <div class="row">
+            <div class="span12">
+                <section id="main">
+                    <form id="mainForm" method="post" action="/accounts/register" class="form-horizontal">
+                        <fieldset><div class="control-group"><label class="control-label">First Name</label><input type="text" name="AthleteFirstName" class="required controls" /></div><br/><div class="control-group"><label class="control-label">Last Name</label><input type="text" name="AthleteLastName" class="required controls" /></div><br/><div class="control-group"><label class="control-label">Gender</label><select name="AthleteGender" class="required controls"><option value="Male" selected="selected">Male</option><option value="Female">Female</option></select></div><br/><div class="control-group"><label class="control-label">User Name</label><input type="text" name="AthleteUserName" class="required controls" /></div><br/><div class="control-group"><label class="control-label">Password</label><input type="password" name="AthletePassword" class="required controls" /></div><br/><div class="control-group"><label class="control-label">Confirm Password</label><input type="password" name="ConfirmPassword" class="controls" /></div><br/><input class="btn btn-inverse" type="submit" value="Register"/></fieldset>
+                    </form>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <footer><a href="mailto:eatsleeptraincode@gmail.com"> eatsleeptraincode@gmail.com</a></footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

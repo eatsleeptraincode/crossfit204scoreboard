@@ -1,3 +1,5 @@
+using FubuValidation;
+
 namespace CrossFit204ScoreBoard.Web.Models
 {
     public class Workout : Entity

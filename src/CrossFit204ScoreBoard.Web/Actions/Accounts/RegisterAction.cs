@@ -2,6 +2,7 @@
 using CrossFit204ScoreBoard.Web.Models;
 using CrossFit204ScoreBoard.Web.Security;
 using FubuMVC.Core.Continuations;
+using FubuValidation;
 using Raven.Client;
 
 namespace CrossFit204ScoreBoard.Web.Actions.Accounts
@@ -36,6 +37,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Accounts
     public class RegisterViewModel
     {
         public Athlete Athlete { get; set; }
+        [Required]
         public string ConfirmPassword { get; set; }
     }
 }
