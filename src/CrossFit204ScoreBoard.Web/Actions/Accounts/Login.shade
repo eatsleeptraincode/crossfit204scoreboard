@@ -2,5 +2,7 @@
 
 formfor model="LoginViewModel"
 	edit property="Athlete.UserName"
+	br
 	edit property="Athlete.Password"
-	input type="submit" value="Login"
+	br
+	input.btn.btn-inverse type="submit" value="Login"

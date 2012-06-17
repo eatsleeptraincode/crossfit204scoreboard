@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CrossFit204ScoreBoard.Web.Models;
+using FubuCore;
 using FubuCore.Reflection;
 using FubuMVC.Core.UI;
 using FubuMVC.Core.UI.Configuration;
+using FubuMVC.Core.UI.Forms;
 using HtmlTags;
 
 namespace CrossFit204ScoreBoard.Web.Config
@@ -18,6 +20,24 @@ namespace CrossFit204ScoreBoard.Web.Config
             Editors.IfPropertyIs<Gender>().BuildBy(HtmlBuilders.GenderBuilder);
             Editors.IfPropertyIs<bool>().BuildBy(HtmlBuilders.CheckBoxBuilder);
             Editors.IfPropertyIs<Time>().BuildBy(HtmlBuilders.TimeBuilder);
+            UseLabelAndFieldLayout<BasicLayout>();
+        }
+    }
+
+    public class BasicLayout : ILabelAndFieldLayout
+    {
+        public IEnumerable<HtmlTag> AllTags()
+        {
+            yield return LabelTag;
+            yield return BodyTag;
+        }
+
+        public HtmlTag LabelTag { get; set; }
+        public HtmlTag BodyTag { get; set; }
+
+        public override string ToString()
+        {
+            return "{0}\n{1}".ToFormat(LabelTag, BodyTag);
         }
     }
 
@@ -29,7 +49,7 @@ namespace CrossFit204ScoreBoard.Web.Config
             var tag = new SelectTag(t =>
                                         {
                                             genders.Each(g => t.Option(g.ToString(), g));
-                                            t.DefaultOption(request.RawValue.ToString());
+                                            t.DefaultOption((request.RawValue ?? Gender.Male).ToString());
                                         });
             return tag;
         }

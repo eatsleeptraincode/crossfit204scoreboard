@@ -4,6 +4,7 @@ using CrossFit204ScoreBoard.Web.Security;
 using FubuMVC.Core;
 using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Security.AntiForgery;
+using FubuMVC.Core.UI.Forms;
 
 namespace CrossFit204ScoreBoard.Web.Config
 {

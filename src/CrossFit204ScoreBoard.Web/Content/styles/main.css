@@ -1,0 +1,44 @@
+h1
+{
+    padding: 1em;
+    font-size: 3em;
+}
+
+h1 a
+{
+    color: #ffffff;
+}
+
+body 
+{
+    font-size: 1em;
+    color: #ffffff;
+    background-color:#000000;
+}
+
+a {
+    color: #aaaaaa;
+}
+
+a:hover 
+{
+    color: #cccccc;
+}
+
+nav a 
+{
+    padding: 1em;
+}
+
+nav a:hover
+{
+    background-color:#333333;
+}
+
+.login a {
+    padding: 0.5em;
+}
+
+.scoreboarditem {
+    background-color: #111111;
+}

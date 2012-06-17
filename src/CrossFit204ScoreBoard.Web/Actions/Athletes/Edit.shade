@@ -2,8 +2,12 @@
 
 formfor model="EditAthleteViewModel"
 	edit property="Athlete.FirstName"
+	br
 	edit property="Athlete.LastName"
+	br
 	edit property="Athlete.Gender"
+	br
 	inputfor property="Athlete.Id"
-	input type="submit" value="Update"
+	br
+	input.btn.btn-inverse type="submit" value="Update"
 		

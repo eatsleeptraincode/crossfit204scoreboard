@@ -2,9 +2,15 @@
 
 formfor model="CreateWorkoutViewModel"
 	edit property="Workout.Name"
+	br
 	edit property="Workout.Description"
+	br
 	edit property="Workout.TrackTime"
+	br
 	edit property="Workout.TrackWeight"
+	br
 	edit property="Workout.TrackReps"
+	br
 	edit property="Workout.TrackRounds"
-	input type="submit" value="Create Workout"
+	br
+	input.btn.btn-inverse type="submit" value="Create Workout"

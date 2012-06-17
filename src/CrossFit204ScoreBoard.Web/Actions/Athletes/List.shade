@@ -1,5 +1,8 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Athletes.AthleteListViewModel"
 
-ul
+h2 |Athlete Roster
+br
+ul.unstyled
 	li each="var a in Model.Athletes"
+		br
 		=this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id.Replace("athletes/","")}).Text(a.FirstName + " " + a.LastName)

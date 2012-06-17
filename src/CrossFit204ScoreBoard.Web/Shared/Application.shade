@@ -1,7 +1,7 @@
 ﻿html
 	head
 		asset for="bootstrap"
-		asset for="CrossFit204"
+		asset for="main"
 		write_assets
 	
 		title |CrossFit204 ScoreBoard
@@ -9,15 +9,20 @@
 		.container
 			.row
 				.span8
-					h1 |CrossFit204 ScoreBoard
+					h1
+						link to="ScoreBoardRequest" text ="CrossFit204 ScoreBoard"
 				.span4
-					link to="LoginRequest" text="Login"
-					link to="RegisterRequest" text="Register"
-					link to="LogoutRequest" text="Logout"
+					.login
+						link to="LoginRequest" text="Login"
+						link to="RegisterRequest" text="Register"
+						link to="LogoutRequest" text="Logout"
 			.row
 				.span12
-					link to="AthleteListRequest" text="Athletes"
-					link to="WorkoutListRequest" text="Workouts"
+					nav.navbar
+						link to="AthleteListRequest" text="Athletes"
+						link to="WorkoutListRequest" text="Workouts"
+			br
+			br
 			.row
 				.span12
 					section#main use content="view"

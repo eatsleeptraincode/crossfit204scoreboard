@@ -1,5 +1,10 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Scores.LogScoreViewModel"
 
+h2
+	|Enter Score for:&nbsp;
+	=Model.Workout.Name
+br
+
 formfor model="LogScoreViewModel"
 	inputfor property="AthleteId"
 	inputfor property="Workout.Id"
@@ -12,4 +17,5 @@ formfor model="LogScoreViewModel"
 		edit property="Score.Rounds"
 	test if="Model.Workout.TrackReps"
 		edit property="Score.Reps"
-	input type="submit" text="Log Score"
+	br
+	input.btn.btn-inverse type="submit" text="Log Score"
