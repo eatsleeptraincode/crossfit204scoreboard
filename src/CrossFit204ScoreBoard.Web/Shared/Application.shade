@@ -12,10 +12,7 @@
 					h1
 						link to="ScoreBoardRequest" text ="CrossFit204 ScoreBoard"
 				.span4
-					.login
-						link to="LoginRequest" text="Login"
-						link to="RegisterRequest" text="Register"
-						link to="LogoutRequest" text="Logout"
+					partial for="LoginStatusRequest"
 			.row
 				.span12
 					nav.navbar

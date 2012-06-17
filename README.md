@@ -7,4 +7,3 @@ To Do:
 - Delete Score
 - Search
 - Workout Details
-- Move login status to partial (overcome stack overflow exception)

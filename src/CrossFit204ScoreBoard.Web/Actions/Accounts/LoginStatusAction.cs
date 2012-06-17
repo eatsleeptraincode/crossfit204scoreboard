@@ -15,12 +15,15 @@ namespace CrossFit204ScoreBoard.Web.Actions.Accounts
         [FubuPartial]
         public LoginStatusViewModel Get(LoginStatusRequest request)
         {
-            var user = secContext.CurrentUser;
-            return new LoginStatusViewModel();
+            var userName = secContext.CurrentIdentity.Name;
+            return new LoginStatusViewModel{UserName = userName};
         }
     }
 
     public class LoginStatusRequest{}
 
-    public class LoginStatusViewModel{}
+    public class LoginStatusViewModel
+    {
+        public string UserName { get; set; }
+    }
 }

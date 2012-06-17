@@ -3,19 +3,28 @@ using Raven.Client;
 
 namespace CrossFit204ScoreBoard.Web.Behaviours
 {
-    public class RavenTransactionBehaviour : BasicBehavior
+    public class RavenTransactionBehaviour : IActionBehavior
     {
         readonly IDocumentSession session;
+        public IActionBehavior InsideBehavior { get; set; }
 
         public RavenTransactionBehaviour(IDocumentSession session)
-            : base(PartialBehavior.Ignored)
         {
             this.session = session;
         }
 
-        protected override void afterInsideBehavior()
+        public void Invoke()
         {
-            session.SaveChanges();
+            using (session)
+            {
+                InsideBehavior.Invoke();
+                session.SaveChanges();
+            }
+        }
+
+        public void InvokePartial()
+        {
+            InsideBehavior.InvokePartial();
         }
     }
 }

@@ -165,7 +165,7 @@
     <Content Include="Actions\Accounts\Login.shade" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Actions\Accounts\LoginStatus.spark" />
+    <Content Include="Actions\Accounts\LoginStatus.shade" />
     <Content Include="Actions\Scores\Log.shade" />
     <Content Include="Actions\Athletes\Details.shade" />
     <Content Include="Actions\Athletes\Edit.shade" />

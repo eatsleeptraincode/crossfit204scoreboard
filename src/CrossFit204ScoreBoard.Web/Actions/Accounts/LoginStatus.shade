@@ -1,0 +1,11 @@
+﻿use master=""
+viewdata model="CrossFit204ScoreBoard.Web.Actions.Accounts.LoginStatusViewModel"
+
+.login
+	test if="string.IsNullOrEmpty(Model.UserName)"
+		link to="LoginRequest" text="Login"
+		link to="RegisterRequest" text="Register"
+	else
+		|Welcome&nbsp;
+		=Model.UserName
+		link to="LogoutRequest" text="Logout"
