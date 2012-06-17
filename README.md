@@ -1,7 +1,6 @@
 A scoreboard to log CrossFit workouts for the crew at CrossFit204.
 
 To Do:
-- Authorization
 - Validation
 - Change Password
 - Update Score

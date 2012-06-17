@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using CrossFit204ScoreBoard.Web.Models;
+using FubuCore.Reflection;
 using FubuMVC.Core.UI;
 using FubuMVC.Core.UI.Configuration;
 using HtmlTags;
@@ -13,6 +17,7 @@ namespace CrossFit204ScoreBoard.Web.Config
             Editors.If(a => a.Accessor.Name.EndsWith("Id")).Attr("type","hidden");
             Editors.IfPropertyIs<Gender>().BuildBy(HtmlBuilders.GenderBuilder);
             Editors.IfPropertyIs<bool>().BuildBy(HtmlBuilders.CheckBoxBuilder);
+            Editors.IfPropertyIs<Time>().BuildBy(HtmlBuilders.TimeBuilder);
         }
     }
 
@@ -20,11 +25,12 @@ namespace CrossFit204ScoreBoard.Web.Config
     {
         public static HtmlTag GenderBuilder(ElementRequest request)
         {
+            var genders = Enum.GetValues(typeof (Gender)).Cast<Gender>().ToList();
             var tag = new SelectTag(t =>
-            {
-                t.Option("Male", "Male");
-                t.Option("Female", "Female");
-            });
+                                        {
+                                            genders.Each(g => t.Option(g.ToString(), g));
+                                            t.DefaultOption(request.RawValue.ToString());
+                                        });
             return tag;
         }
 
@@ -33,6 +39,20 @@ namespace CrossFit204ScoreBoard.Web.Config
             var isChecked = request.Value<bool>();
             var tag = new CheckboxTag(isChecked);
             tag.Attr("name", request.Accessor.Name);
+            return tag;
+        }
+
+        public static HtmlTag TimeBuilder(ElementRequest request)
+        {
+            var time = request.Value<Time>();
+            var minutes = ReflectionHelper.GetProperty<Time>(t => t.Minutes).Name;
+            var seconds = ReflectionHelper.GetProperty<Time>(t => t.Seconds).Name;
+            var baseName = request.Accessor.Name;
+
+            var tag = new TextboxTag(baseName + minutes, time.Minutes.ToString())
+                .Append(new LiteralTag(":"))
+                .Append(new TextboxTag(baseName + seconds, time.Seconds.ToString()));
+
             return tag;
         }
     }

@@ -1,7 +1,9 @@
 using CrossFit204ScoreBoard.Web.Actions;
 using CrossFit204ScoreBoard.Web.Behaviours;
+using CrossFit204ScoreBoard.Web.Security;
 using FubuMVC.Core;
 using FubuMVC.Core.Behaviors;
+using FubuMVC.Core.Security.AntiForgery;
 
 namespace CrossFit204ScoreBoard.Web.Config
 {
@@ -27,6 +29,10 @@ namespace CrossFit204ScoreBoard.Web.Config
             HtmlConvention<ConfigureHtmlConventions>();
 
             Policies
+                .Add<AntiForgeryPolicy>()
+                .Add<AttachAuthenticationPolicy>()
+                .Add<AttachUserPolicy>()
+                .Add<AttachAdminPolicy>()
                 .WrapBehaviorChainsWith<RavenTransactionBehaviour>()
                 .WrapBehaviorChainsWith<load_the_current_principal>();
         }

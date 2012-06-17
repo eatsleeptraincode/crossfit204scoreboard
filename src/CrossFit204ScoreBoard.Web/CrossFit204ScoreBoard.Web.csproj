@@ -133,9 +133,15 @@
     <Compile Include="Models\ScoreBoardItem.cs" />
     <Compile Include="Models\Workout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\AdminPolicy.cs" />
+    <Compile Include="Security\AttachAdminPolicy.cs" />
+    <Compile Include="Security\AttachAuthenticationPolicy.cs" />
+    <Compile Include="Security\AttachUserPolicy.cs" />
     <Compile Include="Security\Encryptor.cs" />
     <Compile Include="Security\FubuPrincipal.cs" />
     <Compile Include="Security\FubuPrincipalFactory.cs" />
+    <Compile Include="Security\AuthenticationPolicy.cs" />
+    <Compile Include="Security\UserPolicy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
