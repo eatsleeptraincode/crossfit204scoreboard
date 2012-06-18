@@ -190,7 +190,7 @@
     <Content Include="Actions\Workouts\Edit.shade" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\scripts\setup_validation.coffee" />
+    <Content Include="Content\scripts\setup_validation.coffee" />
     <Content Include="Shared\Errors.shade" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
