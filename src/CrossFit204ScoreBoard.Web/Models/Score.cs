@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace CrossFit204ScoreBoard.Web.Models
 {
     public class Score
@@ -23,6 +26,27 @@ namespace CrossFit204ScoreBoard.Web.Models
                    || Reps > currentScore.Reps;
         }
     }
+
+    public class ScoreDisplay : Score
+    {
+        public Athlete Athlete { get; set; }
+        public Workout Workout { get; set; }
+    }
+
+    public static class ScoreOrdering
+    {
+        public static IOrderedEnumerable<ScoreDisplay> Order(this IEnumerable<ScoreDisplay> scores)
+        {
+            return scores
+                .OrderBy(s => s.Time.Minutes)
+                .ThenBy(s => s.Time.Seconds)
+                .ThenByDescending(s => s.Weight)
+                .ThenByDescending(s => s.Rounds)
+                .ThenByDescending(s => s.Reps);
+        }
+    }
+
+
 
     public class Time
     {

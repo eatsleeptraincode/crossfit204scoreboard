@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CrossFit204ScoreBoard.Web.Indexes;
 
 namespace CrossFit204ScoreBoard.Web.Models
 {
     public class ScoreBoardItem
     {
         public Workout Workout { get; private set; }
-        private readonly List<ScoreDisplay> scores;
+        private readonly IEnumerable<ScoreDisplay> scores;
 
-        public ScoreBoardItem(Workout workout, List<ScoreDisplay> scores)
+        public ScoreBoardItem(Workout workout, IEnumerable<ScoreDisplay> scores)
         {
             Workout = workout;
             this.scores = scores;
@@ -17,12 +16,12 @@ namespace CrossFit204ScoreBoard.Web.Models
 
         public IEnumerable<ScoreDisplay> MenScores
         {
-            get { return scores.Where(s => s.Athlete.Gender == Gender.Male); }
+            get { return scores.Where(s => s.Athlete.Gender == Gender.Male).Order(); }
         }
 
         public IEnumerable<ScoreDisplay> WomenScores
         {
-            get { return scores.Where(s => s.Athlete.Gender == Gender.Female); }
+            get { return scores.Where(s => s.Athlete.Gender == Gender.Female).Order(); }
         }
     }
 }

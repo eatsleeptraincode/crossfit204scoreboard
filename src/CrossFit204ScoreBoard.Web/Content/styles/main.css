@@ -35,6 +35,10 @@ nav a:hover
     background-color:#333333;
 }
 
+.login {
+    padding: 0.5em;
+}
+
 .login a {
     padding: 0.5em;
 }

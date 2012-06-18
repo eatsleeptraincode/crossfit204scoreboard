@@ -23,7 +23,7 @@ namespace CrossFit204ScoreBoard.Tests.Config
         } 
     }
 
-    [TestFixture]
+    [TestFixture,Ignore]
     public class CheckBoxBuilderTests
     {
         private Accessor accessor = ReflectionHelper.GetAccessor<Workout>(a => a.TrackTime);

@@ -18,12 +18,12 @@ namespace CrossFit204ScoreBoard.Web.Actions
 
         public ScoreBoardViewModel Get(ScoreBoardRequest request)
         {
-            var workouts = session.Query<Score, ScoreBoardIndex>().As<ScoreDisplay>().ToList().GroupBy(s => s.Workout);
+            var scores = session.Query<Score, ScoreBoardIndex>().As<ScoreDisplay>().ToList().GroupBy(s => s.Workout.Id);
 
             var items = new List<ScoreBoardItem>();
-        
-            foreach (var workout in workouts)
-                items.Add(new ScoreBoardItem(workout.Key, workout.ToList()));
+
+            foreach (var score in scores)
+                items.Add(new ScoreBoardItem(score.First().Workout, score));
 
             return new ScoreBoardViewModel {Items = items};
         }

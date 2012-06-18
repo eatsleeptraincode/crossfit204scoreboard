@@ -26,7 +26,10 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
         public FubuContinuation Post(LogScoreViewModel request)
         {
             var athleteId = request.AthleteId;
-            var currentScore = session.Query<Score>().SingleOrDefault(s => s.AthleteId == athleteId);
+            var currentScore = session
+                .Query<Score>()
+                .SingleOrDefault(s => s.AthleteId == athleteId 
+                    && s.WorkoutId == request.Workout.Id);
             if (currentScore == null)
             {
                 Score score = request.Score;
