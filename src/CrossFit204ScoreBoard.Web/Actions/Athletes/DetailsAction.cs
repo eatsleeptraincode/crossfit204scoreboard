@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using CrossFit204ScoreBoard.Web.Indexes;
 using CrossFit204ScoreBoard.Web.Models;
+using FubuCore;
 using FubuMVC.Core;
 using Raven.Client;
+using Raven.Client.Linq;
 
 namespace CrossFit204ScoreBoard.Web.Actions.Athletes
 {
@@ -18,8 +21,11 @@ namespace CrossFit204ScoreBoard.Web.Actions.Athletes
         {
             var athleteId = "athletes/" + request.AthleteId;
             var athlete = session.Load<Athlete>(athleteId);
-            var workouts = session.Query<Workout>();
-            return new AthleteDetailsViewModel { Athlete = athlete, Workouts = workouts };
+            var scores = session
+                .Query<Score, ScoreBoardIndex>()
+                .Where(s => s.AthleteId == athleteId)
+                .As<ScoreDisplay>();
+            return new AthleteDetailsViewModel { Athlete = athlete, Scores = scores };
         }
     }
 
@@ -32,6 +38,6 @@ namespace CrossFit204ScoreBoard.Web.Actions.Athletes
     public class AthleteDetailsViewModel
     {
         public Athlete Athlete { get; set; }
-        public IEnumerable<Workout> Workouts { get; set; }
+        public IEnumerable<ScoreDisplay> Scores { get; set; }
     }
 }

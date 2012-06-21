@@ -19,6 +19,8 @@
 					nav.navbar
 						link to="AthleteListRequest" text="Athletes"
 						link to="WorkoutListRequest" text="Workouts"
+						a href="http://crossfit204.com/" | CrossFit204.com
+
 			br
 			br
 			.row
@@ -29,6 +31,13 @@
 				.span12
 					section#main use content="view"
 			.row
-				.span12
-					footer
-						a href="mailto:eatsleeptraincode@gmail.com" | eatsleeptraincode@gmail.com
+				.span3
+					p
+				.span6
+				.footer
+					a href="mailto:eatsleeptraincode@gmail.com" | eatsleeptraincode@gmail.com
+					a href="http://eatsleeptraincode.github.com/" | eat.sleep.train.code
+					a href="http://ryanweppler.github.com" | ryan weppler
+				.span3
+					p
+				

@@ -1,11 +1,21 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Athletes.AthleteDetailsViewModel"
 
 h2 =Model.Athlete.FirstName + " " + Model.Athlete.LastName
-=this.LinkTo(new EditAthleteRequest{AthleteId = Model.Athlete.Id.Replace("athletes/","")}).Text("Update")
+=this.LinkTo(new EditAthleteRequest{AthleteId = Model.Athlete.Id.Replace("athletes/","")}).Text("Change")
 
 br
 ul
-	li each="var w in Model.Workouts"
-		=w.Name
-		
+	li each="var s in Model.Scores"
+		=s.Workout.Name
+		|&nbsp;&nbsp;
+		test if="s.Workout.TrackWeight"
+			=s.Weight
+		test if="s.Workout.TrackTime"
+			=s.Time.Minutes
+			|:
+			=s.Time.Seconds
+		test if="s.Workout.TrackRounds"
+			s.Rounds
+		test if="s.Workout.TrackReps"
+			s.Reps		
 		

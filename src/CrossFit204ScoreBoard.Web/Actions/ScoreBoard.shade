@@ -1,41 +1,44 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.ScoreBoardViewModel"
 
-
-ul.unstyled
-	li each="var i in Model.Items"
-		h2 =i.Workout.Name
-		br
-		.row
-			.span4
-				h3 |Men
-				br
-				ol
-					li each="var s in i.MenScores"
-						=s.Athlete.FirstName + " " + s.Athlete.LastName
-						|&nbsp;&nbsp;
-						test if="i.Workout.TrackWeight"
-							=s.Weight
-						test if="i.Workout.TrackTime"
-							=s.Time.Minutes
-							|:
-							=s.Time.Seconds
-						test if="i.Workout.TrackRounds"
-							s.Rounds
-						test if="i.Workout.TrackReps"
-							s.Reps
-			.span4
-				h3 |Women
-				br
-				ol
-					li each="var s in i.WomenScores"
-						=s.Athlete.FirstName + " " + s.Athlete.LastName
-						test if="i.Workout.TrackWeight"
-							=s.Weight
-						test if="i.Workout.TrackTime"
-						test if="i.Workout.TrackRounds"
-							s.Rounds
-						test if="i.Workout.TrackReps"
-							s.Reps
-
-		
-
+-int w = 0;
+for each="var i in Model.Items"
+	test if="w % 2 == 0"
+		.row-fluid
+	-w++;
+	.span6
+		.scoreboarditem
+			.row-fluid
+				.span12
+					h2 =i.Workout.Name
+			.row-fluid
+				.span6
+					h3 |Men
+					br
+					ol
+						li each="var s in i.MenScores"
+							=s.Athlete.FirstName + " " + s.Athlete.LastName
+							|&nbsp;&nbsp;
+							test if="i.Workout.TrackWeight"
+								=s.Weight
+							test if="i.Workout.TrackTime"
+								=s.Time.Minutes
+								|:
+								=s.Time.Seconds
+							test if="i.Workout.TrackRounds"
+								s.Rounds
+							test if="i.Workout.TrackReps"
+								s.Reps
+				.span6
+					h3 |Women
+					br
+					ol
+						li each="var s in i.WomenScores"
+							=s.Athlete.FirstName + " " + s.Athlete.LastName
+							|&nbsp;&nbsp;
+							test if="i.Workout.TrackWeight"
+								=s.Weight
+							test if="i.Workout.TrackTime"
+							test if="i.Workout.TrackRounds"
+								s.Rounds
+							test if="i.Workout.TrackReps"
+								s.Reps
