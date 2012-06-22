@@ -11,7 +11,8 @@ namespace CrossFit204ScoreBoard.Tests.Actions.Workouts
         public void ShouldReturnAllWorkouts()
         {
             var result = ClassUnderTest.Get(new WorkoutListRequest());
-            result.Workouts.ShouldHaveCount(2);
+            result.WorkoutsA.ShouldHaveCount(1);
+            result.WorkoutsB.ShouldHaveCount(1);
         }
     }
 }

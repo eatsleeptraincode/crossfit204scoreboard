@@ -3,10 +3,20 @@
 h2 |Workouts
 br
 link to="CreateWorkoutRequest" text="New Workout"
-ul.unstyled
-	li each="var w in Model.Workouts"
-		br
-		=w.Name
-		| &nbsp;
+.row
+	.span6
+		ul.unstyled
+			li each="var w in Model.WorkoutsA"
+				br
+				=w.Name
+				| &nbsp;
 		
-		=this.LinkTo(new LogScoreRequest{WorkoutId = w.Id.Replace("workouts/","")}).Text("Log Score")
+				=this.LinkTo(new LogScoreRequest{WorkoutId = w.Id.Replace("workouts/","")}).Text("Log Score")
+	.span6
+		ul.unstyled
+			li each="var w in Model.WorkoutsB"
+				br
+				=w.Name
+				| &nbsp;
+		
+				=this.LinkTo(new LogScoreRequest{WorkoutId = w.Id.Replace("workouts/","")}).Text("Log Score")
