@@ -10,6 +10,7 @@ namespace CrossFit204ScoreBoard.Web.Models
             Time = new Time();
         }
 
+        public string Id { get; set; }
         public string AthleteId { get; set; }
         public string WorkoutId { get; set; }
 

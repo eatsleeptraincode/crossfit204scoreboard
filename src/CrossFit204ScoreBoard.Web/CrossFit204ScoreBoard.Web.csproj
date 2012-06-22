@@ -128,6 +128,7 @@
     <Compile Include="Actions\Athletes\EditAction.cs" />
     <Compile Include="Actions\Athletes\ListAction.cs" />
     <Compile Include="Actions\ScoreBoardAction.cs" />
+    <Compile Include="Actions\Scores\DeleteScoreAction.cs" />
     <Compile Include="Actions\Scores\LogAction.cs" />
     <Compile Include="Actions\UrlRoot.cs" />
     <Compile Include="Actions\Workouts\CreateAction.cs" />

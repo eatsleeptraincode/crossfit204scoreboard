@@ -4,7 +4,6 @@ h2 =Model.Athlete.FirstName + " " + Model.Athlete.LastName
 =this.LinkTo(new EditAthleteRequest{AthleteId = Model.Athlete.Id.Replace("athletes/","")}).Text("Change")
 
 .row
-
 	-int w = 0;
 	for each="var s in Model.Scores"
 		test if="w % 6 == 0"
@@ -26,4 +25,6 @@ h2 =Model.Athlete.FirstName + " " + Model.Athlete.LastName
 					h3 =s.Rounds
 				test if="s.Workout.TrackReps"
 					h3 =s.Reps
+				.btn.btn-danger
+					=this.LinkTo(new DeleteScoreRequest{ScoreId = s.Id.Replace("scores/","")}).Text("delete")
 		

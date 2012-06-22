@@ -16,7 +16,7 @@ namespace CrossFit204ScoreBoard.Web.Indexes
                 (database, scores) => from score in scores
                                       let workout = database.Load<Workout>(score.WorkoutId)
                                       let athlete = database.Load<Athlete>(score.AthleteId)
-                                      select new { Workout = workout, Athlete = athlete, score.WorkoutId, score.AthleteId, score.Weight, score.Time, score.Reps, score.Rounds };
+                                      select new { Workout = workout, Athlete = athlete, score.Id, score.WorkoutId, score.AthleteId, score.Weight, score.Time, score.Reps, score.Rounds };
         }
     }
 
