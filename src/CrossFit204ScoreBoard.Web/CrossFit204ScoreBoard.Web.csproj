@@ -119,6 +119,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\Accounts\ChangePasswordAction.cs" />
     <Compile Include="Actions\Accounts\LoginAction.cs" />
     <Compile Include="Actions\Accounts\LoginStatusAction.cs" />
     <Compile Include="Actions\Accounts\LogoutAction.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Indexes\ScoreBoardIndex.cs" />
     <Compile Include="Models\Athlete.cs" />
     <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Score.cs" />
     <Compile Include="Models\ScoreBoardItem.cs" />
     <Compile Include="Models\Workout.cs" />
@@ -155,10 +157,13 @@
     <Compile Include="Security\FubuPrincipalFactory.cs" />
     <Compile Include="Security\AuthenticationPolicy.cs" />
     <Compile Include="Security\UserPolicy.cs" />
+    <Compile Include="Services\TopScoreUpdater.cs" />
     <Compile Include="Validation\ModelRules.cs" />
     <Compile Include="Validation\RuleBase.cs" />
     <Compile Include="Validation\RuleSource.cs" />
+    <Compile Include="Validation\Rules\NewPasswordsShouldMatch.cs" />
     <Compile Include="Validation\Rules\LoginRules.cs" />
+    <Compile Include="Validation\Rules\OldPasswordShouldMatchEncryptedOne.cs" />
     <Compile Include="Validation\Rules\PasswordsShouldMatch.cs" />
     <Compile Include="Validation\Rules\UserNameIsUnique.cs" />
   </ItemGroup>
@@ -195,6 +200,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shared\_ScoreList.shade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shared\_Notifications.shade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Actions\Accounts\ChangePassword.shade" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

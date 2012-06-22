@@ -9,23 +9,23 @@
 	body
 		.container
 			.row
-				.span8
+				.span9
 					h1
 						link to="ScoreBoardRequest" text ="CrossFit204 ScoreBoard"
-				.span4
+				.span3
 					partial for="LoginStatusRequest"
 			.row
-				.span12
+				.span9
 					nav.navbar
 						link to="AthleteListRequest" text="Athletes"
 						link to="WorkoutListRequest" text="Workouts"
 						a href="http://crossfit204.com/" | CrossFit204.com
-
 			br
 			br
 			.row
 				.span4
 					validation_errors
+					Notifications
 				.span8
 			.row
 				.span12

@@ -2,9 +2,11 @@
 
 h2 |Workouts
 br
+link to="CreateWorkoutRequest" text="New Workout"
 ul.unstyled
 	li each="var w in Model.Workouts"
 		br
 		=w.Name
 		| &nbsp;
+		
 		=this.LinkTo(new LogScoreRequest{WorkoutId = w.Id.Replace("workouts/","")}).Text("Log Score")

@@ -3,19 +3,27 @@
 h2 =Model.Athlete.FirstName + " " + Model.Athlete.LastName
 =this.LinkTo(new EditAthleteRequest{AthleteId = Model.Athlete.Id.Replace("athletes/","")}).Text("Change")
 
-br
-ul
-	li each="var s in Model.Scores"
-		=s.Workout.Name
-		|&nbsp;&nbsp;
-		test if="s.Workout.TrackWeight"
-			=s.Weight
-		test if="s.Workout.TrackTime"
-			=s.Time.Minutes
-			|:
-			=s.Time.Seconds
-		test if="s.Workout.TrackRounds"
-			s.Rounds
-		test if="s.Workout.TrackReps"
-			s.Reps		
+.row
+
+	-int w = 0;
+	for each="var s in Model.Scores"
+		test if="w % 6 == 0"
+			.row-fluid
+		-w++;
+
+		.span2
+			.scoreboarditem
+				h3 =s.Workout.Name
+				|&nbsp;&nbsp;
+				test if="s.Workout.TrackWeight"
+					h3 =s.Weight
+				test if="s.Workout.TrackTime"
+					h3 
+						=s.Time.Minutes
+						|:
+						=s.Time.Seconds
+				test if="s.Workout.TrackRounds"
+					h3 =s.Rounds
+				test if="s.Workout.TrackReps"
+					h3 =s.Reps
 		

@@ -1,14 +1,15 @@
 ﻿ol
-	li each="var s in scores"
-		=s.Athlete.FirstName + " " + s.Athlete.LastName
-		|&nbsp;&nbsp;
-		test if="i.Workout.TrackWeight"
-			=s.Weight
-		test if="i.Workout.TrackTime"
-			=s.Time.Minutes
-			|:
-			=s.Time.Seconds
-		test if="i.Workout.TrackRounds"
-			s.Rounds
-		test if="i.Workout.TrackReps"
-			s.Reps
+	.scorelist
+		li each="var s in scores"
+			=s.Athlete.FirstName + " " + s.Athlete.LastName
+			|&nbsp;&nbsp;
+			test if="i.Workout.TrackWeight"
+				=s.Weight
+			test if="i.Workout.TrackTime"
+				=s.Time.Minutes
+				|:
+				=s.Time.Seconds
+			test if="i.Workout.TrackRounds"
+				s.Rounds
+			test if="i.Workout.TrackReps"
+				s.Reps

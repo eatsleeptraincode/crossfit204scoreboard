@@ -1,8 +1,10 @@
 ﻿<use namespace="FubuMVC.Core.View" />
+<use namespace="FubuMVC.Core.SessionState"/>
 <use namespace="CrossFit204ScoreBoard.Web.Actions"/>
 <use namespace="CrossFit204ScoreBoard.Web.Actions.Athletes"/>
 <use namespace="CrossFit204ScoreBoard.Web.Actions.Workouts"/>
 <use namespace="CrossFit204ScoreBoard.Web.Actions.Accounts"/>
 <use namespace="CrossFit204ScoreBoard.Web.Actions.Scores"/>
+<use namespace="CrossFit204ScoreBoard.Web.Models"/>
 <use namespace="System.Linq"/>
 <use namespace="System.Collections.Generic"/>

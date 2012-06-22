@@ -6,7 +6,6 @@ namespace CrossFit204ScoreBoard.Web.Models
     {
         [Required]
         public string Name { get; set; }
-        [Required]
         public string Description { get; set; }
         public bool TrackTime { get; set; }
         public bool TrackWeight { get; set; }

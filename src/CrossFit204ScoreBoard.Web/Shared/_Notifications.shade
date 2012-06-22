@@ -1,0 +1,5 @@
+﻿
+-var message = Get<IFlash>().Retrieve<Message>();
+test if="message != null"
+	.alert.alert-success
+		=message.Text

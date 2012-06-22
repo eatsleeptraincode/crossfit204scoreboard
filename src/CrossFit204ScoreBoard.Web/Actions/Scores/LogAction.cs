@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using CrossFit204ScoreBoard.Web.Models;
+﻿using CrossFit204ScoreBoard.Web.Models;
 using CrossFit204ScoreBoard.Web.Security;
+using CrossFit204ScoreBoard.Web.Services;
 using FubuMVC.Core;
 using FubuMVC.Core.Continuations;
 using Raven.Client;
@@ -10,10 +10,12 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
     public class LogAction
     {
         private readonly IDocumentSession session;
+        private readonly ITopScoreUpdater updater;
 
-        public LogAction(IDocumentSession session)
+        public LogAction(IDocumentSession session, ITopScoreUpdater updater)
         {
             this.session = session;
+            this.updater = updater;
         }
 
         public LogScoreViewModel Get(LogScoreRequest request)
@@ -25,26 +27,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
 
         public FubuContinuation Post(LogScoreViewModel request)
         {
-            var athleteId = request.AthleteId;
-            var currentScore = session
-                .Query<Score>()
-                .SingleOrDefault(s => s.AthleteId == athleteId 
-                    && s.WorkoutId == request.Workout.Id);
-            if (currentScore == null)
-            {
-                Score score = request.Score;
-                score.AthleteId = athleteId;
-                score.WorkoutId = request.Workout.Id;
-                session.Store(score);
-            }
-            else if (request.Score.IsBetterThan(currentScore))
-            {
-                session.Delete(currentScore);
-                Score score = request.Score;
-                score.AthleteId = athleteId;
-                score.WorkoutId = request.Workout.Id;
-                session.Store(score);
-            }
+            updater.Update(request.Workout.Id, request.AthleteId, request.Score);
 
             return FubuContinuation.RedirectTo(new ScoreBoardRequest());
         }

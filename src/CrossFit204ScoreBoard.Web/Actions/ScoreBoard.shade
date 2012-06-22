@@ -11,11 +11,13 @@ for each="var i in Model.Items"
 				.span12
 					h2 =i.Workout.Name
 			.row-fluid
-				.span6
+				.span5
 					h3 |Men
 					br
 					ScoreList scores="i.MenScores"
-				.span6
+				.span2
+					p
+				.span5
 					h3 |Women
 					br
 					ScoreList scores="i.WomenScores"
