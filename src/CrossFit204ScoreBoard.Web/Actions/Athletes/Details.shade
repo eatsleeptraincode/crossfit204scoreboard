@@ -6,11 +6,11 @@ h2 =Model.Athlete.FirstName + " " + Model.Athlete.LastName
 .row
 	-int w = 0;
 	for each="var s in Model.Scores"
-		test if="w % 6 == 0"
+		test if="w % 4 == 0"
 			.row-fluid
 		-w++;
 
-		.span2
+		.span3
 			.scoreboarditem
 				h3 =s.Workout.Name
 				|&nbsp;&nbsp;
