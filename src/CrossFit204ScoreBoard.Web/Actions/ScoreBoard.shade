@@ -9,7 +9,7 @@ for each="var i in Model.Items"
 		.scoreboarditem
 			.row-fluid
 				.span12
-					h2 =i.Workout.Name
+					h2 =this.LinkTo(new WorkoutDetailsRequest{WorkoutId = i.Workout.Id.Replace("workouts/","")}).Text(i.Workout.Name).AddClass("whitelink")
 			.row-fluid
 				.span5
 					h3 |Men

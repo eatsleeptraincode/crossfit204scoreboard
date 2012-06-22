@@ -61,6 +61,10 @@ nav a:hover
     color: #ffffff;
 }
 
+a.whitelink{
+    color: #ffffff;
+}
+
 .scorelist {
     text-align: left;
 }

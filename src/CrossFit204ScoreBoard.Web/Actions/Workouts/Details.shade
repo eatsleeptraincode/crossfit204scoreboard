@@ -1,0 +1,17 @@
+﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Workouts.WorkoutDetailsViewModel"
+
+.scoreboarditem
+	.row-fluid
+		.span12
+			h2 =Model.Item.Workout.Name
+	.row-fluid
+		.span5
+			h3 |Men
+			br
+			ScoreList scores="Model.Item.MenScores"
+		.span2
+			p
+		.span5
+			h3 |Women
+			br
+			ScoreList scores="Model.Item.WomenScores"

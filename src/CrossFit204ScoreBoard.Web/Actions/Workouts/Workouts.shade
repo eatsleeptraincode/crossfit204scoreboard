@@ -8,15 +8,13 @@ link to="CreateWorkoutRequest" text="New Workout"
 		ul.unstyled
 			li each="var w in Model.WorkoutsA"
 				br
-				=w.Name
+				=this.LinkTo(new WorkoutDetailsRequest{WorkoutId = w.Id.Replace("workouts/","")}).Text(w.Name).AddClass("whitelink")
 				| &nbsp;
-		
 				=this.LinkTo(new LogScoreRequest{WorkoutId = w.Id.Replace("workouts/","")}).Text("Log Score")
 	.span6
 		ul.unstyled
 			li each="var w in Model.WorkoutsB"
 				br
-				=w.Name
+				=this.LinkTo(new WorkoutDetailsRequest{WorkoutId = w.Id.Replace("workouts/","")}).Text(w.Name).AddClass("whitelink")
 				| &nbsp;
-		
 				=this.LinkTo(new LogScoreRequest{WorkoutId = w.Id.Replace("workouts/","")}).Text("Log Score")
