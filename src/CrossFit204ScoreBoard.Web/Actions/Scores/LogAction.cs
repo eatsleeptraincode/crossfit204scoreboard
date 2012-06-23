@@ -28,7 +28,6 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
         public FubuContinuation Post(LogScoreViewModel request)
         {
             updater.Update(request.Workout.Id, request.AthleteId, request.Score);
-
             return FubuContinuation.RedirectTo(new ScoreBoardRequest());
         }
     }

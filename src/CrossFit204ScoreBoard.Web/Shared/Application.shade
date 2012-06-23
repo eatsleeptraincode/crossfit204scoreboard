@@ -14,6 +14,7 @@
 						link to="ScoreBoardRequest" text ="CrossFit204 ScoreBoard"
 				.span3
 					partial for="LoginStatusRequest"
+					partial for="SearchRequestRequest"
 			.row
 				.span9
 					nav.navbar
@@ -35,9 +36,8 @@
 					p
 				.span6
 				.footer
-					a href="mailto:eatsleeptraincode@gmail.com" | eatsleeptraincode@gmail.com
-					a href="http://eatsleeptraincode.github.com/" | eat.sleep.train.code
-					a href="http://ryanweppler.github.com" | ryan weppler
+					a href="mailto:eatsleeptraincode@gmail.com" |eatsleeptraincode@gmail.com
+					a href="http://eatsleeptraincode.github.com/" |eat.sleep.train.code
 				.span3
 					p
 				

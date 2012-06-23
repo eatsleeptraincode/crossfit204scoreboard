@@ -21,7 +21,15 @@ namespace CrossFit204ScoreBoard.Web.Actions.Workouts
         {
             var workoutId = "workouts/" + request.WorkoutId;
             var scores = session.Query<Score, ScoreBoardIndex>().Where(s => s.WorkoutId == workoutId).As<ScoreDisplay>();
-            return new WorkoutDetailsViewModel { Item = new ScoreBoardItem(scores.First().Workout, scores) };
+            if (scores.Any())
+            {
+                return new WorkoutDetailsViewModel { Item = new ScoreBoardItem(scores.First().Workout, scores) };
+            }
+            else
+            {
+                Workout workout = session.Load<Workout>(workoutId);
+                return new WorkoutDetailsViewModel {Item = new ScoreBoardItem(workout, new List<ScoreDisplay>())};
+            }
         }
     }
 

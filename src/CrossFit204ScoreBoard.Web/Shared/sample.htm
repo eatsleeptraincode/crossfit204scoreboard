@@ -11,18 +11,22 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="span8">
+            <div class="span9">
                 <h1>
                     <a href="/">CrossFit204 ScoreBoard</a></h1>
             </div>
-            <div class="span4">
+            <div class="span3">
                 <div class="login">
-                    <a href="/accounts/login">Login</a><a href="/accounts/register">Register</a></div>
+                    Welcome&nbsp;rweppler<a href="/accounts/logout">Logout</a></div>
+                <form id="searchForm" method="get" action="/search/results">
+                <br />
+                <input type="text" name="Term" /><br />
+                <input class="btn btn-inverse" type="submit" value="Search" /></form>
             </div>
         </div>
         <div class="row">
-            <div class="span12">
-                <nav class="navbar"><a href="/athletes/list">Athletes</a><a href="/workouts/list">Workouts</a></nav>
+            <div class="span9">
+                <nav class="navbar"><a href="/athletes/list">Athletes</a><a href="/workouts/list">Workouts</a><a href="http://crossfit204.com/"> CrossFit204.com</a></nav>
             </div>
         </div>
         <br />
@@ -34,16 +38,19 @@
         </div>
         <div class="row">
             <div class="span12">
-                <section id="main">
-                    <form id="mainForm" method="post" action="/accounts/register" class="form-horizontal">
-                        <fieldset><div class="control-group"><label class="control-label">First Name</label><input type="text" name="AthleteFirstName" class="required controls" /></div><br/><div class="control-group"><label class="control-label">Last Name</label><input type="text" name="AthleteLastName" class="required controls" /></div><br/><div class="control-group"><label class="control-label">Gender</label><select name="AthleteGender" class="required controls"><option value="Male" selected="selected">Male</option><option value="Female">Female</option></select></div><br/><div class="control-group"><label class="control-label">User Name</label><input type="text" name="AthleteUserName" class="required controls" /></div><br/><div class="control-group"><label class="control-label">Password</label><input type="password" name="AthletePassword" class="required controls" /></div><br/><div class="control-group"><label class="control-label">Confirm Password</label><input type="password" name="ConfirmPassword" class="controls" /></div><br/><input class="btn btn-inverse" type="submit" value="Register"/></fieldset>
-                    </form>
-                </section>
+                <section id="main"><h2>Enter Score for:&nbsp;Squat 1RM</h2><br/><form id="mainForm" method="post" action="/scores/log"><input type="hidden" value="athletes/65" name="AthleteId" /><input type="hidden" value="workouts/34" name="WorkoutId" /><label>Weight</label><input type="text" value="0" name="ScoreWeight" /><br/><input class="btn btn-inverse" type="submit" text="Log Score"/></form></section>
             </div>
         </div>
         <div class="row">
-            <div class="span12">
-                <footer><a href="mailto:eatsleeptraincode@gmail.com"> eatsleeptraincode@gmail.com</a></footer>
+            <div class="span3">
+                <p />
+            </div>
+            <div class="span6" />
+            <div class="footer">
+                <a href="mailto:eatsleeptraincode@gmail.com">eatsleeptraincode@gmail.com</a><a href="http://eatsleeptraincode.github.com/">
+                    eat.sleep.train.code</a><a href="http://ryanweppler.github.com"> ryan weppler</a></div>
+            <div class="span3">
+                <p />
             </div>
         </div>
     </div>

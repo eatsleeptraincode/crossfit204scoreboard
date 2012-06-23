@@ -92,6 +92,7 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices.Protocols" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -130,6 +131,7 @@
     <Compile Include="Actions\ScoreBoardAction.cs" />
     <Compile Include="Actions\Scores\DeleteScoreAction.cs" />
     <Compile Include="Actions\Scores\LogAction.cs" />
+    <Compile Include="Actions\Search\RequestAction.cs" />
     <Compile Include="Actions\Search\ResultsAction.cs" />
     <Compile Include="Actions\UrlRoot.cs" />
     <Compile Include="Actions\Workouts\CreateAction.cs" />
@@ -207,7 +209,7 @@
     <Content Include="Shared\_ScoreList.shade" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Shared\_Notifications.shade" />
+    <None Include="Shared\_Notifications.shade" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Actions\Accounts\ChangePassword.shade" />
@@ -217,6 +219,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Actions\Workouts\Details.shade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Actions\Search\SearchRequest.shade" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

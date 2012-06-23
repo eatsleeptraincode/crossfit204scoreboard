@@ -1,0 +1,8 @@
+﻿use master=""
+viewdata model="CrossFit204ScoreBoard.Web.Actions.Search.SearchRequestViewModel"
+
+searchform
+	br
+	inputfor property="Term"
+	br
+	input.btn.btn-inverse type="submit" value="Search"

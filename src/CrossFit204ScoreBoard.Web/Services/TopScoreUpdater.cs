@@ -52,8 +52,6 @@ namespace CrossFit204ScoreBoard.Web.Services
             newScore.WorkoutId = workoutId;
             session.Store(newScore);
             flash.Flash(new Message {Text = "Congratulations on the new score"});
-
-            var message = flash.Retrieve<Message>();
         }
     }
 }

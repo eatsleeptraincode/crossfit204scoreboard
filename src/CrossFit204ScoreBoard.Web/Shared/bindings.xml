@@ -3,6 +3,11 @@
     <start>this.FormFor&lt;@model&gt;()</start>
     <end>this.EndForm()</end>
   </element>
+
+  <element name="searchform">
+    <start>this.FormFor&lt;SearchResultsRequest&gt;().Attr("method", "get").Id("searchForm")</start>
+    <end>this.EndForm()</end>
+  </element>
   <element name="edit">this.Edit(m =&gt; m.@property)</element>
   <element name="show">this.Show(m =&gt; m.@property)</element>
   <element name="labelfor">this.LabelFor(m =&gt; m.@property)</element>
@@ -12,4 +17,6 @@
   <element name="write_assets">this.WriteAssetTags()</element>
   <element name="partial">this.Partial&lt;@for&gt;()</element>
   <element name="validation_errors">this.Partial&lt;FubuValidation.Notification&gt;()</element>
+
+  <elemet name="message">this.Get&lt;IFlash&gt;().Retrieve&lt;Message&gt;().Text</elemet>
 </bindings>
