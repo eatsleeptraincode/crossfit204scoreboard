@@ -1,5 +1,4 @@
-﻿using CrossFit204ScoreBoard.Web.Models;
-using CrossFit204ScoreBoard.Web.Security;
+﻿using CrossFit204ScoreBoard.Web.Security;
 using FubuMVC.Core.Continuations;
 using Raven.Client;
 
@@ -9,11 +8,13 @@ namespace CrossFit204ScoreBoard.Web.Actions.Accounts
     {
         private readonly IDocumentSession session;
         private readonly IEncryptor encryptor;
+        private readonly IUserContext context;
 
-        public ChangePasswordAction(IDocumentSession session, IEncryptor encryptor)
+        public ChangePasswordAction(IDocumentSession session, IEncryptor encryptor, IUserContext context)
         {
             this.session = session;
             this.encryptor = encryptor;
+            this.context = context;
         }
 
         public ChangePasswordViewModel Get(ChangePasswordRequest request)
@@ -23,7 +24,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Accounts
 
         public FubuContinuation Post(ChangePasswordViewModel request)
         {
-            var athlete = FubuPrincipal.Current.User;
+            var athlete = context.User;
             athlete.Password = encryptor.Encrypt(request.NewPassword);
             session.Store(athlete);
             return FubuContinuation.RedirectTo(new ScoreBoardRequest());

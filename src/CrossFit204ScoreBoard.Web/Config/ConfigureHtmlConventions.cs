@@ -21,6 +21,8 @@ namespace CrossFit204ScoreBoard.Web.Config
             Editors.IfPropertyIs<Gender>().BuildBy(HtmlBuilders.GenderBuilder);
             Editors.IfPropertyIs<bool>().BuildBy(HtmlBuilders.CheckBoxBuilder);
             Editors.IfPropertyIs<Time>().BuildBy(HtmlBuilders.TimeBuilder);
+            Editors.IfPropertyIs<int>().AddClass("digits");
+            Editors.IfPropertyIs<decimal>().AddClass("number");
             Editors.ModifyForAttribute<RequiredAttribute>(t => t.AddClass("required"));
             UseLabelAndFieldLayout<BasicLayout>();
         }
@@ -72,9 +74,9 @@ namespace CrossFit204ScoreBoard.Web.Config
             var seconds = ReflectionHelper.GetProperty<Time>(t => t.Seconds).Name;
             var baseName = request.Accessor.Name;
 
-            var tag = new TextboxTag(baseName + minutes, time.Minutes.ToString())
+            var tag = new TextboxTag(baseName + minutes, time.Minutes.ToString()).AddClass("short")
                 .Append(new LiteralTag(":"))
-                .Append(new TextboxTag(baseName + seconds, time.Seconds.ToString()));
+                .Append(new TextboxTag(baseName + seconds, time.Seconds.ToString()).AddClass("short"));
 
             return tag;
         }

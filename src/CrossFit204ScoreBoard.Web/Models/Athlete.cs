@@ -1,4 +1,3 @@
-using System;
 using FubuValidation;
 
 namespace CrossFit204ScoreBoard.Web.Models

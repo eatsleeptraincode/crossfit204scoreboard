@@ -1,6 +1,7 @@
 ﻿using CrossFit204ScoreBoard.Web.Actions.Accounts;
 using CrossFit204ScoreBoard.Web.Actions.Athletes;
 using CrossFit204ScoreBoard.Web.Models;
+using CrossFit204ScoreBoard.Web.Security;
 using FubuMVC.Core.Continuations;
 using FubuTestingSupport;
 using NUnit.Framework;
@@ -12,12 +13,22 @@ namespace CrossFit204ScoreBoard.Tests.Actions.Accounts
     [TestFixture]
     public class RegisterActionTests : InteractionContext<RegisterAction>
     {
-        private Athlete athlete = new Athlete();
+        private const string Password = "Password";
+        private const string EncryptedPassword = "EncryptedPassword";
+        private Athlete athlete = new Athlete {Password = Password};
         private FubuContinuation result;
 
         protected override void beforeEach()
         {
+            Services.Get<IEncryptor>().Stub(e => e.Encrypt(Password)).Return(EncryptedPassword);
             result = ClassUnderTest.Post(new RegisterViewModel { Athlete = athlete });
+        }
+
+        [Test]
+        public void EncryptPassword()
+        {
+            Services.Get<IEncryptor>().AssertWasCalled(e => e.Encrypt(Password));
+            athlete.Password.ShouldEqual(EncryptedPassword);
         }
 
         [Test]

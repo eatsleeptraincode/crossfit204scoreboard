@@ -26,8 +26,8 @@ namespace CrossFit204ScoreBoard.Web.Actions.Accounts
         public FubuContinuation Post(RegisterViewModel request)
         {
             var athlete = request.Athlete;
-            athlete.Password = encryptor.Encrypt(request.Athlete.Password);
-            session.Store(request.Athlete);
+            athlete.Password = encryptor.Encrypt(athlete.Password);
+            session.Store(athlete);
             return FubuContinuation.RedirectTo(new AthleteListRequest());
         }
     }

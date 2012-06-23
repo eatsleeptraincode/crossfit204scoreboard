@@ -18,6 +18,7 @@ namespace CrossFit204ScoreBoard.Web.Actions
 
         public ScoreBoardViewModel Get(ScoreBoardRequest request)
         {
+            
             var scores = session.Query<Score, ScoreBoardIndex>().As<ScoreDisplay>().ToList().GroupBy(s => s.Workout.Id);
 
             var items = new List<ScoreBoardItem>();

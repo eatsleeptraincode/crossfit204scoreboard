@@ -11,16 +11,18 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
     {
         private readonly IDocumentSession session;
         private readonly ITopScoreUpdater updater;
+        private readonly IUserContext context;
 
-        public LogAction(IDocumentSession session, ITopScoreUpdater updater)
+        public LogAction(IDocumentSession session, ITopScoreUpdater updater, IUserContext context)
         {
             this.session = session;
             this.updater = updater;
+            this.context = context;
         }
 
         public LogScoreViewModel Get(LogScoreRequest request)
         {
-            var athleteId = FubuPrincipal.Current.User.Id;
+            var athleteId = context.User.Id;
             var workout = session.Load<Workout>("workouts/" + request.WorkoutId);
             return new LogScoreViewModel { AthleteId = athleteId, Workout = workout, Score = new Score() };
         }

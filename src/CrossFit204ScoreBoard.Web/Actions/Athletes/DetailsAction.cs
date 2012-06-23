@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using CrossFit204ScoreBoard.Web.Indexes;
 using CrossFit204ScoreBoard.Web.Models;
-using FubuCore;
 using FubuMVC.Core;
 using Raven.Client;
 using Raven.Client.Linq;

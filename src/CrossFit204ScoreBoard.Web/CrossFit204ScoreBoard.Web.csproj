@@ -163,6 +163,7 @@
     <Compile Include="Security\FubuPrincipal.cs" />
     <Compile Include="Security\FubuPrincipalFactory.cs" />
     <Compile Include="Security\AuthenticationPolicy.cs" />
+    <Compile Include="Security\IUserContext.cs" />
     <Compile Include="Security\UserPolicy.cs" />
     <Compile Include="Services\TopScoreUpdater.cs" />
     <Compile Include="Validation\ModelRules.cs" />

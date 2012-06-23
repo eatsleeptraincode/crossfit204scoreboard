@@ -77,3 +77,11 @@ a.whitelink{
     color: #555555;
     padding: 0.5em;
 }
+
+input[type=text], input[type=password] {
+    width: 10em;
+}
+
+.short {
+    width: 3em;
+}

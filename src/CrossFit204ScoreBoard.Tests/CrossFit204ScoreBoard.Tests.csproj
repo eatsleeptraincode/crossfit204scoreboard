@@ -89,6 +89,9 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\Accounts\ChangePasswordTests.cs" />
+    <Compile Include="Actions\Accounts\LoginActionTests.cs" />
+    <Compile Include="Actions\Accounts\LoginStatusActionTests.cs" />
     <Compile Include="Actions\Accounts\LogoutActionTests.cs" />
     <Compile Include="Actions\Accounts\RegisterActionTests.cs" />
     <Compile Include="Actions\Workouts\CreateActionTests.cs" />
