@@ -23,7 +23,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
         public LogScoreViewModel Get(LogScoreRequest request)
         {
             var athleteId = context.User.Id;
-            var workout = session.Load<Workout>("workouts/" + request.WorkoutId);
+            var workout = session.Load<Workout>(request.WorkoutId);
             return new LogScoreViewModel { AthleteId = athleteId, Workout = workout, Score = new Score() };
         }
 

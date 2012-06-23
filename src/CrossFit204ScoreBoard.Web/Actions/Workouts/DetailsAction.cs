@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CrossFit204ScoreBoard.Web.Indexes;
+﻿using CrossFit204ScoreBoard.Web.Indexes;
 using CrossFit204ScoreBoard.Web.Models;
 using FubuMVC.Core;
 using Raven.Client;
@@ -19,17 +17,12 @@ namespace CrossFit204ScoreBoard.Web.Actions.Workouts
 
         public WorkoutDetailsViewModel Get(WorkoutDetailsRequest request)
         {
-            var workoutId = "workouts/" + request.WorkoutId;
-            var scores = session.Query<Score, ScoreBoardIndex>().Where(s => s.WorkoutId == workoutId).As<ScoreDisplay>();
-            if (scores.Any())
-            {
-                return new WorkoutDetailsViewModel { Item = new ScoreBoardItem(scores.First().Workout, scores) };
-            }
-            else
-            {
-                Workout workout = session.Load<Workout>(workoutId);
-                return new WorkoutDetailsViewModel {Item = new ScoreBoardItem(workout, new List<ScoreDisplay>())};
-            }
+            var workout = session.Load<Workout>(request.WorkoutId);
+            var scores = session
+                            .Query<Score, ScoreBoardIndex>()
+                            .Where(s => s.WorkoutId == request.WorkoutId)
+                            .As<ScoreDisplay>();
+            return new WorkoutDetailsViewModel { Item = new ScoreBoardItem(workout, scores) };
         }
     }
 

@@ -9,7 +9,7 @@
 			li each="var a in Model.Athletes"
 				.whitelink
 					br
-					=this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id.Replace("athletes/","")}).Text(a.FirstName + " " + a.LastName)
+					=this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id}).Text(a.FirstName + " " + a.LastName)
 	.span6
 		h2 |Workouts
 		br
@@ -18,4 +18,4 @@
 				br
 				=w.Name
 				| &nbsp;
-				=this.LinkTo(new LogScoreRequest{WorkoutId = w.Id.Replace("workouts/","")}).Text("Log Score")
+				=this.LinkTo(new LogScoreRequest{WorkoutId = w.Id}).Text("Log Score")

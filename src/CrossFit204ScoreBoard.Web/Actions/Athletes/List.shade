@@ -6,4 +6,4 @@ ul.unstyled
 	li each="var a in Model.Athletes"
 		br
 		.whitelink
-			=this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id.Replace("athletes/","")}).Text(a.FirstName + " " + a.LastName)
+			=this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id}).Text(a.FirstName + " " + a.LastName)

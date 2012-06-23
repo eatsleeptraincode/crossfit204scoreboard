@@ -16,7 +16,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Athletes
 
         public EditAthleteViewModel Get(EditAthleteRequest request)
         {
-            var athlete = session.Load<Athlete>("athletes/" + request.AthleteId);
+            var athlete = session.Load<Athlete>(request.AthleteId);
             return new EditAthleteViewModel {Athlete = athlete};
         }
 
@@ -26,7 +26,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Athletes
             athlete.FirstName = request.Athlete.FirstName;
             athlete.LastName = request.Athlete.LastName;
             athlete.Gender = request.Athlete.Gender;
-            return FubuContinuation.RedirectTo(new AthleteDetailsRequest {AthleteId = request.Athlete.Id.Replace("athletes/","")});
+            return FubuContinuation.RedirectTo(new AthleteDetailsRequest {AthleteId = request.Athlete.Id});
         }
     }
 

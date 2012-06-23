@@ -16,7 +16,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Workouts
 
         public EditWorkoutViewModel Get(EditWorkoutRequest request)
         {
-            var workout = session.Load<Workout>("workouts/" + request.WorkoutId);
+            var workout = session.Load<Workout>(request.WorkoutId);
             return new EditWorkoutViewModel {Workout = workout};
         }
 

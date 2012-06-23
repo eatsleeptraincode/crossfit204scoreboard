@@ -1,7 +1,7 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.Athletes.AthleteDetailsViewModel"
 
 h2 =Model.Athlete.FirstName + " " + Model.Athlete.LastName
-=this.LinkTo(new EditAthleteRequest{AthleteId = Model.Athlete.Id.Replace("athletes/","")}).Text("Change")
+=this.LinkTo(new EditAthleteRequest{AthleteId = Model.Athlete.Id}).Text("Change")
 
 .row
 	-int w = 0;
@@ -27,5 +27,5 @@ h2 =Model.Athlete.FirstName + " " + Model.Athlete.LastName
 					h3 =s.Reps
 				.btn.btn-danger
 					.whitelink
-						=this.LinkTo(new DeleteScoreRequest{ScoreId = s.Id.Replace("scores/","")}).Text("delete")
+						=this.LinkTo(new DeleteScoreRequest{ScoreId = s.Id}).Text("delete")
 		

@@ -4,7 +4,7 @@
 	.span12
 		h2 =Model.Item.Workout.Name
 		br
-		=this.LinkTo(new LogScoreRequest{WorkoutId = Model.Item.Workout.Id.Replace("workouts/","")}).Text("Log Score")
+		=this.LinkTo(new LogScoreRequest{WorkoutId = Model.Item.Workout.Id}).Text("Log Score")
 .row-fluid
 	.span5
 		h3 |Men

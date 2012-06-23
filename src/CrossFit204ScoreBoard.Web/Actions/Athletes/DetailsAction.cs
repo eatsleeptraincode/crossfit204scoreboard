@@ -18,11 +18,10 @@ namespace CrossFit204ScoreBoard.Web.Actions.Athletes
 
         public AthleteDetailsViewModel Get(AthleteDetailsRequest request)
         {
-            var athleteId = "athletes/" + request.AthleteId;
-            var athlete = session.Load<Athlete>(athleteId);
+            var athlete = session.Load<Athlete>(request.AthleteId);
             var scores = session
                 .Query<Score, ScoreBoardIndex>()
-                .Where(s => s.AthleteId == athleteId)
+                .Where(s => s.AthleteId == request.AthleteId)
                 .As<ScoreDisplay>();
             return new AthleteDetailsViewModel { Athlete = athlete, Scores = scores };
         }

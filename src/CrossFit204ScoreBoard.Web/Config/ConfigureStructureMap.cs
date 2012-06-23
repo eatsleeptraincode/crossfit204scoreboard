@@ -30,10 +30,8 @@ namespace CrossFit204ScoreBoard.Web.Config
             ForSingletonOf<IDocumentStore>()
                 .Use(ctx =>
                          {
-                             var store = new DocumentStore
-                                             {
-                                                 ConnectionStringName = "RavenDb"
-                                             };
+                             var store = new DocumentStore {ConnectionStringName = "RavenDb"};
+                             store.Conventions.IdentityPartsSeparator = "-";
                              store.Initialize();
                              IndexCreation.CreateIndexes(typeof (ConfigureFubuMvc).Assembly, store);
                              return store;

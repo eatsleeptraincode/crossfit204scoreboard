@@ -20,9 +20,9 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
 
         public FubuContinuation Get(DeleteScoreRequest request)
         {
-            var score = session.Load<Score>("scores/" + request.ScoreId);
+            var score = session.Load<Score>();
             session.Delete(score);
-            var athleteId = context.User.Id.Replace("athletes/", "");
+            var athleteId = context.User.Id;
             return  FubuContinuation.RedirectTo(new AthleteDetailsRequest {AthleteId = athleteId});
         }
     }
