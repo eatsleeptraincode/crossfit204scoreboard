@@ -1,4 +1,4 @@
-A Scoreboard to Track CrossFit workouts for the Crew at CrossFit[204].
+A Scoreboard to Track CrossFit workouts for the Crew at CrossFit204.
 
 To Do:
 - Clean up
