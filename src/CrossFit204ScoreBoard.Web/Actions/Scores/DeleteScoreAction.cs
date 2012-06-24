@@ -20,7 +20,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
 
         public FubuContinuation Get(DeleteScoreRequest request)
         {
-            var score = session.Load<Score>();
+            var score = session.Load<Score>(request.ScoreId);
             session.Delete(score);
             var athleteId = context.User.Id;
             return  FubuContinuation.RedirectTo(new AthleteDetailsRequest {AthleteId = athleteId});
@@ -29,6 +29,8 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
 
     public class DeleteScoreRequest
     {
+        [RouteInput]
+        public string AthleteId { get; set; }
         [RouteInput]
         public string ScoreId { get; set; }
     }

@@ -8,4 +8,5 @@ viewdata model="CrossFit204ScoreBoard.Web.Actions.Accounts.LoginStatusViewModel"
 	else
 		|Welcome&nbsp;
 		=Model.UserName
+		link to="ChangePasswordRequest"
 		link to="LogoutRequest" text="Logout"

@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using CrossFit204ScoreBoard.Web.Actions.Athletes;
+﻿using CrossFit204ScoreBoard.Web.Actions.Athletes;
+using CrossFit204ScoreBoard.Web.Actions.Scores;
 using CrossFit204ScoreBoard.Web.Models;
 using FubuMVC.Core.Runtime;
 using FubuMVC.Core.Security;
@@ -20,13 +20,21 @@ namespace CrossFit204ScoreBoard.Web.Security
 
         public AuthorizationRight RightsFor(IFubuRequest request)
         {
-            var input = request.Get<EditAthleteRequest>();
-            var athleteId = "athletes/" + input.AthleteId;
+
+            var athleteId = GetAthleteId(request);
             var athlete = session.Load<Athlete>(athleteId);
         
             if (athlete.UserName == secContext.CurrentIdentity.Name)
                 return AuthorizationRight.Allow;
             return AuthorizationRight.Deny;
+        }
+
+        private string GetAthleteId(IFubuRequest request)
+        {
+            var input1 = request.Get<DeleteScoreRequest>();
+            if (input1 != null)
+                return input1.AthleteId;
+            return request.Get<EditAthleteRequest>().AthleteId;
         }
     }
 }

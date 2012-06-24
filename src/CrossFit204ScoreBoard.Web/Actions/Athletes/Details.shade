@@ -25,7 +25,7 @@ h2 =Model.Athlete.FirstName + " " + Model.Athlete.LastName
 					h3 =s.Rounds
 				test if="s.Workout.TrackReps"
 					h3 =s.Reps
-				.btn.btn-danger
-					.whitelink
-						=this.LinkTo(new DeleteScoreRequest{ScoreId = s.Id}).Text("delete")
+				.whitelink
+					=this.LinkTo(new DeleteScoreRequest{ScoreId = s.Id, AthleteId = Model.Athlete.Id}).Text("delete").AddClass("btn").AddClass("btn-danger")	
+						
 		
