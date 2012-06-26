@@ -17,8 +17,11 @@ namespace CrossFit204ScoreBoard.Web.Security
 
         public IPrincipal CreatePrincipal(IIdentity identity)
         {
+            var athlete = session
+                .Query<Athlete>()
+                .SingleOrDefault(a => a.UserName == identity.Name);
             return FubuPrincipal.Current
-                ?? new FubuPrincipal(identity, session.Query<Athlete>().SingleOrDefault(a => a.UserName.Equals(identity.Name)));
+                ?? new FubuPrincipal(identity, athlete);
         }
     }
 }

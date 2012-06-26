@@ -146,6 +146,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Indexes\AthletesByName.cs" />
+    <Compile Include="Indexes\AthletesByUserName.cs" />
     <Compile Include="Indexes\ScoreBoardIndex.cs" />
     <Compile Include="Indexes\WorkoutsByName.cs" />
     <Compile Include="Models\Athlete.cs" />
