@@ -10,11 +10,31 @@ namespace CrossFit204ScoreBoard.Web.Config.Html
 {
     public static class TimeBuilder
     {
-        public static HtmlTag BuildTime(ElementRequest request)
+        private static readonly string Minutes = ReflectionHelper.GetProperty<Time>(t => t.Minutes).Name;
+        private static readonly string Seconds = ReflectionHelper.GetProperty<Time>(t => t.Seconds).Name;
+
+        public static HtmlTag BuildEditor(ElementRequest request)
         {
             var time = request.Value<Time>();
-            var tm = BuildTimeElementTag(t => t.Minutes, time.Minutes, "##");
-            var ts = BuildTimeElementTag(t => t.Seconds, time.Seconds, "0#.#");
+            var baseName = request.Accessor.Name;
+            var tag = BuildTimeElementEditorTag(baseName + Minutes, time.Minutes, "##")
+                .Append(new LiteralTag(":"))
+                .Append(BuildTimeElementEditorTag(baseName + Seconds, time.Seconds, "##.#"));
+
+            return tag;
+        }
+
+        private static HtmlTag BuildTimeElementEditorTag(string propName, decimal value, string format)
+        {
+            return new TextboxTag(propName, value.ToString(format)).AddClass("short");
+        }
+
+        public static HtmlTag BuildDisplay(ElementRequest request)
+        {
+            var time = request.Value<Time>();
+            var baseName = request.Accessor.Name;
+            var tm = BuildTimeElementDisplayTag(baseName + Minutes, time.Minutes, "##");
+            var ts = BuildTimeElementDisplayTag(baseName + Seconds, time.Seconds, "0#.#");
 
             var tag = tm
                 .Append(new LiteralTag(":"))
@@ -23,12 +43,11 @@ namespace CrossFit204ScoreBoard.Web.Config.Html
             return tag;
         }
 
-        private static HtmlTag BuildTimeElementTag(Expression<Func<Time, object>> prop, decimal value, string format)
+        private static HtmlTag BuildTimeElementDisplayTag(string propName, decimal value, string format)
         {
-            var seconds = ReflectionHelper.GetProperty(prop).Name;
             return new HtmlTag("span", c =>
                                            {
-                                               c.Name("Time" + seconds);
+                                               c.Name(propName);
                                                c.Text(value.ToString(format));
                                                c.AddClass("short");
                                            });

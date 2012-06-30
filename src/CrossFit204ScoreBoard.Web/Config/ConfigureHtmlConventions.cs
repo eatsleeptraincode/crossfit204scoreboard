@@ -16,7 +16,8 @@ namespace CrossFit204ScoreBoard.Web.Config
             Editors.IfPropertyIs<int>().AddClass("digits");
             Editors.IfPropertyIs<decimal>().AddClass("number");
             Editors.ModifyForAttribute<RequiredAttribute>(t => t.AddClass("required"));
-            Displays.IfPropertyIs<Time>().BuildBy(TimeBuilder.BuildTime);
+            Editors.IfPropertyIs<Time>().BuildBy(TimeBuilder.BuildEditor);
+            Displays.IfPropertyIs<Time>().BuildBy(TimeBuilder.BuildDisplay);
             UseLabelAndFieldLayout<BasicLayout>();
         }
     }
