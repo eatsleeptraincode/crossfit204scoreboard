@@ -19,7 +19,6 @@ namespace CrossFit204ScoreBoard.Web.Validation
         {
             var templateType = typeof (ModelRule<>);
             var closedType = templateType.MakeGenericType(type);
-
             var validationRules = container.GetAllInstances(closedType).Cast<IValidationRule>();
             return validationRules;
         }

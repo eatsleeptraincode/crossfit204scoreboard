@@ -1,0 +1,17 @@
+﻿.span6
+		for each="var i in items"
+			.scoreboarditem
+				.row-fluid
+					.span12
+						h2 =this.LinkTo(new WorkoutDetailsRequest{WorkoutId = i.Workout.Id}).Text(i.Workout.Name).AddClass("whitelink")
+				.row-fluid
+					.span5
+						h3 |Men
+						br
+						ScoreList scores="i.MenScores"
+					.span2
+						p
+					.span5
+						h3 |Women
+						br
+						ScoreList scores="i.WomenScores"

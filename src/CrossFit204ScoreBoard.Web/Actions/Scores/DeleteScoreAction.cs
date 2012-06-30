@@ -27,10 +27,8 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
         }
     }
 
-    public class DeleteScoreRequest
+    public class DeleteScoreRequest : AthleteSpecific
     {
-        [RouteInput]
-        public string AthleteId { get; set; }
         [RouteInput]
         public string ScoreId { get; set; }
     }

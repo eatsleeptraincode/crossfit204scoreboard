@@ -1,23 +1,5 @@
 ﻿viewdata model="CrossFit204ScoreBoard.Web.Actions.ScoreBoardViewModel"
 
--int w = 0;
-for each="var i in Model.Items"
-	test if="w % 2 == 0"
-		.row-fluid
-	-w++;
-	.span6
-		.scoreboarditem
-			.row-fluid
-				.span12
-					h2 =this.LinkTo(new WorkoutDetailsRequest{WorkoutId = i.Workout.Id}).Text(i.Workout.Name).AddClass("whitelink")
-			.row-fluid
-				.span5
-					h3 |Men
-					br
-					ScoreList scores="i.MenScores"
-				.span2
-					p
-				.span5
-					h3 |Women
-					br
-					ScoreList scores="i.WomenScores"
+.row
+	ScoreBoardColumn items="Model.ItemsLeft"
+	ScoreBoardColumn items="Model.ItemsRight"

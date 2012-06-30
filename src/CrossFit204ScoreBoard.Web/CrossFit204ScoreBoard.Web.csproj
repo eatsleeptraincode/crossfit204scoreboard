@@ -171,7 +171,6 @@
     <Compile Include="Security\UserPolicy.cs" />
     <Compile Include="Services\TopScoreUpdater.cs" />
     <Compile Include="Validation\ModelRules.cs" />
-    <Compile Include="Validation\RuleBase.cs" />
     <Compile Include="Validation\RuleSource.cs" />
     <Compile Include="Validation\Rules\NewPasswordsShouldMatch.cs" />
     <Compile Include="Validation\Rules\LoginRules.cs" />
@@ -214,6 +213,8 @@
     <Content Include="Actions\_ScoreList.shade" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Actions\Athletes\_AthleteList.shade" />
+    <Content Include="Actions\_ScoreBoardColumn.shade" />
     <None Include="Shared\_Notifications.shade" />
   </ItemGroup>
   <ItemGroup>

@@ -2,8 +2,9 @@
 
 h2 |Athlete Roster
 br
-ul.unstyled
-	li each="var a in Model.Athletes"
-		br
-		.whitelink
-			=this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id}).Text(a.FirstName + " " + a.LastName)
+.row-fluid
+	-var men = "Men";
+	-var women = "Women";
+	AthleteList gender="men" athletes="Model.MaleAthletes"
+	AthleteList gender="women" athletes="Model.FemaleAthletes"
+	

@@ -9,7 +9,7 @@ namespace CrossFit204ScoreBoard.Web.Security
     public class AdminPolicy : IAuthorizationPolicy
     {
         private readonly IDocumentSession session;
-        private ISecurityContext secContext;
+        private readonly ISecurityContext secContext;
 
         public AdminPolicy(IDocumentSession session, ISecurityContext secContext)
         {

@@ -20,13 +20,15 @@ namespace CrossFit204ScoreBoard.Web.Actions
         {
             var items = session
                 .Query<Score, ScoreBoardIndex>()
+                .Customize(c => c.RandomOrdering())
                 .As<ScoreDisplay>()
                 .ToList()
                 .GroupBy(s => s.Workout.Id)
                 .Select(score => new ScoreBoardItem(score.First().Workout, score))
                 .ToList();
 
-            return new ScoreBoardViewModel {Items = items};
+            var half = items.Count() / 2;
+            return new ScoreBoardViewModel { ItemsLeft = items.Take(half), ItemsRight = items.Skip(half) };
         }
     }
 
@@ -34,6 +36,7 @@ namespace CrossFit204ScoreBoard.Web.Actions
 
     public class ScoreBoardViewModel
     {
-        public IEnumerable<ScoreBoardItem> Items { get; set; }
+        public IEnumerable<ScoreBoardItem> ItemsLeft { get; set; }
+        public IEnumerable<ScoreBoardItem> ItemsRight { get; set; }
     }
 }

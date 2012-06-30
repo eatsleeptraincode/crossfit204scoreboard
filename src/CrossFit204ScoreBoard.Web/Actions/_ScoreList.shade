@@ -2,7 +2,7 @@
 	.scorelist
 		li each="var s in scores"
 			.whitelink
-				=this.LinkTo(new AthleteDetailsRequest{AthleteId = s.Athlete.Id}).Text(s.Athlete.FirstName + " " + s.Athlete.LastName)
+				=this.LinkTo(new AthleteDetailsRequest{AthleteId = s.Athlete.Id}).Text(s.Athlete.FullName)
 				|&nbsp;&nbsp;
 				test if="s.Workout.TrackWeight"
 					=this.DisplayFor(s, m => m.Weight)

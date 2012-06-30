@@ -32,7 +32,6 @@ namespace CrossFit204ScoreBoard.Web.Validation.Rules
             var newPassword = GetValue(m => m.Athlete.Password);
             var encrypted = encryptor.Encrypt(newPassword);
             var existing = athlete.Password;
-            var dec = encryptor.Decrypt(existing);
             if (encrypted != existing)
                 RegisterError("PasswordIncorrect", "The password you enterred is incorrect", Accessor(m => m.Athlete.Password));
         }

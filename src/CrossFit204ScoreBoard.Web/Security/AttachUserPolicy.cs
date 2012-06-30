@@ -13,8 +13,8 @@ namespace CrossFit204ScoreBoard.Web.Security
             graph
                 .Behaviors
                 .Where(chain => chain.InputType() != null)
-                .Where(chain => chain.InputType() == typeof (EditAthleteRequest) 
-                                || chain.InputType() == typeof(DeleteScoreRequest))
+                .Where(chain => chain.InputType() == typeof (EditAthleteRequest)
+                                || chain.InputType() == typeof (DeleteScoreRequest))
                 .Each(chain => chain
                                    .Authorization
                                    .AddPolicy(typeof (UserPolicy)));

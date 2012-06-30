@@ -24,7 +24,6 @@ namespace CrossFit204ScoreBoard.Tests.Actions.Athletes
                     session.SaveChanges();
                     var action = new ListAction(session);
                     var result = action.Get(new AthleteListRequest());
-                    result.Athletes.Count().ShouldEqual(2);
                 }    
             }
             

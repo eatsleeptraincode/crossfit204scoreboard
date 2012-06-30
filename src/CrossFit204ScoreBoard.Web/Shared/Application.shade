@@ -11,7 +11,7 @@
 			.row
 				.span9
 					h1
-						link to="ScoreBoardRequest" text ="CrossFit204 ScoreBoard"
+						link to="ScoreBoardRequest" text="CrossFit204 ScoreBoard"
 				.span3
 					partial for="LoginStatusRequest"
 					partial for="SearchRequestRequest"
@@ -20,7 +20,7 @@
 					nav.navbar
 						link to="AthleteListRequest" text="Athletes"
 						link to="WorkoutListRequest" text="Workouts"
-						a href="http://crossfit204.com/" | CrossFit204.com
+						a href="http://crossfit204.com/" |CrossFit204.com
 			br
 			br
 			.row
@@ -35,9 +35,9 @@
 				.span3
 					p
 				.span6
-				.footer
-					a href="mailto:eatsleeptraincode@gmail.com" |eatsleeptraincode@gmail.com
-					a href="http://eatsleeptraincode.github.com/" |eat.sleep.train.code
+					.footer
+						a href="mailto:eatsleeptraincode@gmail.com" |eatsleeptraincode@gmail.com
+						a href="http://eatsleeptraincode.github.com/" |eat.sleep.train.code
 				.span3
 					p
 				

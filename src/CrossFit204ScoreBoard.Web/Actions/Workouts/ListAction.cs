@@ -16,7 +16,7 @@ namespace CrossFit204ScoreBoard.Web.Actions.Workouts
 
         public WorkoutListViewModel Get(WorkoutListRequest request)
         {
-            var workouts = session.Query<Workout>().OrderBy(w => w.Name);
+            var workouts = session.Query<Workout>().ToList().OrderBy(w => w.Name);
             var half = workouts.Count() / 2;
             return new WorkoutListViewModel { WorkoutsA = workouts.Take(half), WorkoutsB = workouts.Skip(half)};
         }

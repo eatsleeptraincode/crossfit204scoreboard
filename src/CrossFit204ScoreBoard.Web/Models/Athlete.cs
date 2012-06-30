@@ -1,3 +1,4 @@
+using FubuCore;
 using FubuValidation;
 
 namespace CrossFit204ScoreBoard.Web.Models
@@ -15,6 +16,11 @@ namespace CrossFit204ScoreBoard.Web.Models
         [Required]
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
+
+        public string FullName
+        {
+            get { return "{0} {1}".ToFormat(FirstName, LastName); }
+        }
     }
 
     public enum Gender

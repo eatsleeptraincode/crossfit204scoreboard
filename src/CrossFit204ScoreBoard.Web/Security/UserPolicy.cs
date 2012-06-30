@@ -31,10 +31,8 @@ namespace CrossFit204ScoreBoard.Web.Security
 
         private string GetAthleteId(IFubuRequest request)
         {
-            var input1 = request.Get<DeleteScoreRequest>();
-            if (input1 != null)
-                return input1.AthleteId;
-            return request.Get<EditAthleteRequest>().AthleteId;
+            var input = request.Get<AthleteSpecific>();
+            return input.AthleteId;
         }
     }
 }

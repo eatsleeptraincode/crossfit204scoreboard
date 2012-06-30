@@ -9,7 +9,7 @@
 			li each="var a in Model.Athletes"
 				.whitelink
 					br
-					=this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id}).Text(a.FirstName + " " + a.LastName)
+					=this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id}).Text(a.FullName)
 	.span6
 		h2 |Workouts
 		br

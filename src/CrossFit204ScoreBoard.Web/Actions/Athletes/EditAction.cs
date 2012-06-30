@@ -30,10 +30,14 @@ namespace CrossFit204ScoreBoard.Web.Actions.Athletes
         }
     }
 
-    public class EditAthleteRequest
+    public class AthleteSpecific
     {
         [RouteInput]
         public string AthleteId { get; set; }
+    }
+
+    public class EditAthleteRequest : AthleteSpecific
+    {
     }
 
     public class EditAthleteViewModel

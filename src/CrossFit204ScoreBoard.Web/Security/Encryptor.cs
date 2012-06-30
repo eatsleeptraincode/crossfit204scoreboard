@@ -13,13 +13,11 @@ namespace CrossFit204ScoreBoard.Web.Security
 
     public class Encryptor : IEncryptor
     {
-        private readonly EncryptionSettings settings;
-        private ICryptoTransform encryptor;
-        private ICryptoTransform decryptor;
+        private readonly ICryptoTransform encryptor;
+        private readonly ICryptoTransform decryptor;
 
         public Encryptor(EncryptionSettings settings)
         {
-            this.settings = settings;
             var symmetricKey = CreateSymmetricKey();
             var keyBytes = GetKeyBytes(settings);
             var initVectorBytes = Encoding.ASCII.GetBytes(settings.InitVector);

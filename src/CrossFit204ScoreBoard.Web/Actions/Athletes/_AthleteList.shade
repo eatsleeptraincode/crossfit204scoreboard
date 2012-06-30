@@ -1,0 +1,8 @@
+﻿.span6
+		h3 =gender
+		br
+		ul.unstyled
+			li each="var a in athletes"
+				br
+				.whitelink
+					=this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id}).Text(a.FullName)
