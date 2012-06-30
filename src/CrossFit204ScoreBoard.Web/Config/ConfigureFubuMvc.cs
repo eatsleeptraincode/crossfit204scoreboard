@@ -34,6 +34,7 @@ namespace CrossFit204ScoreBoard.Web.Config
                 .RegisterActionLessViews(t => t.ViewModel == typeof(Notification));
 
             HtmlConvention<ConfigureHtmlConventions>();
+            StringConversions(c => c.IfIsType<decimal>().ConvertBy(d => d.ToString("##.#")));
 
             Policies
                 .Add<AntiForgeryPolicy>()

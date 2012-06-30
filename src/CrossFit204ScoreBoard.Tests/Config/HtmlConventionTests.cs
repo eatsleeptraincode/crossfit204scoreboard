@@ -1,4 +1,5 @@
 ﻿using CrossFit204ScoreBoard.Web.Config;
+using CrossFit204ScoreBoard.Web.Config.Html;
 using CrossFit204ScoreBoard.Web.Models;
 using FubuCore;
 using FubuCore.Reflection;

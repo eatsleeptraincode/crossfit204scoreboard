@@ -5,12 +5,10 @@
 				=this.LinkTo(new AthleteDetailsRequest{AthleteId = s.Athlete.Id}).Text(s.Athlete.FirstName + " " + s.Athlete.LastName)
 				|&nbsp;&nbsp;
 				test if="s.Workout.TrackWeight"
-					=s.Weight
+					=this.DisplayFor(s, m => m.Weight)
 				test if="s.Workout.TrackTime"
-					=s.Time.Minutes
-					|:
-					=s.Time.Seconds
+					=this.DisplayFor(s, m => m.Time)
 				test if="s.Workout.TrackRounds"
-					s.Rounds
+					=this.DisplayFor(s, m => m.Rounds)
 				test if="s.Workout.TrackReps"
-					s.Reps
+					=this.DisplayFor(s, m => m.Reps)

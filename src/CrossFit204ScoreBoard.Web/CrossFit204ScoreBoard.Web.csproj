@@ -142,6 +142,9 @@
     <Compile Include="Config\ConfigureFubuMvc.cs" />
     <Compile Include="Config\ConfigureHtmlConventions.cs" />
     <Compile Include="Config\ConfigureStructureMap.cs" />
+    <Compile Include="Config\Html\BasicLayout.cs" />
+    <Compile Include="Config\Html\HtmlBuilders.cs" />
+    <Compile Include="Config\Html\TimeBuilder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,7 +211,7 @@
     <Content Include="Shared\Errors.shade" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Shared\_ScoreList.shade" />
+    <Content Include="Actions\_ScoreList.shade" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shared\_Notifications.shade" />

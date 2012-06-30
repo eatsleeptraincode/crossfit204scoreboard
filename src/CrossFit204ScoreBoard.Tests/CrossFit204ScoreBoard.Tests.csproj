@@ -136,7 +136,9 @@
     <Compile Include="Actions\Accounts\LoginStatusActionTests.cs" />
     <Compile Include="Actions\Accounts\LogoutActionTests.cs" />
     <Compile Include="Actions\Accounts\RegisterActionTests.cs" />
+    <Compile Include="Actions\Athletes\DetailsActionTests.cs" />
     <Compile Include="Actions\Athletes\EditActionTests.cs" />
+    <Compile Include="Actions\Athletes\ListActionTests.cs" />
     <Compile Include="Actions\Workouts\CreateActionTests.cs" />
     <Compile Include="Actions\Workouts\ListActionTests.cs" />
     <Compile Include="Behaviours\RavenTransactionBehaviourTest.cs" />
@@ -156,7 +158,9 @@
   <ItemGroup>
     <Content Include="Raven.Studio.xap" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Actions\Search\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
