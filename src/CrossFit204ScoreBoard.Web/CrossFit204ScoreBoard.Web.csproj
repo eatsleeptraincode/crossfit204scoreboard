@@ -129,7 +129,7 @@
     <Compile Include="Actions\Athletes\EditAction.cs" />
     <Compile Include="Actions\Athletes\ListAction.cs" />
     <Compile Include="Actions\ScoreBoardAction.cs" />
-    <Compile Include="Actions\Scores\DeleteScoreAction.cs" />
+    <Compile Include="Actions\Scores\DeleteAction.cs" />
     <Compile Include="Actions\Scores\LogAction.cs" />
     <Compile Include="Actions\Search\RequestAction.cs" />
     <Compile Include="Actions\Search\ResultsAction.cs" />
@@ -145,6 +145,7 @@
     <Compile Include="Config\Html\BasicLayout.cs" />
     <Compile Include="Config\Html\HtmlBuilders.cs" />
     <Compile Include="Config\Html\TimeBuilder.cs" />
+    <Compile Include="Config\ViewModelDescriptor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

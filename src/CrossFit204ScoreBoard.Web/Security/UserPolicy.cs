@@ -1,5 +1,4 @@
 ﻿using CrossFit204ScoreBoard.Web.Actions.Athletes;
-using CrossFit204ScoreBoard.Web.Actions.Scores;
 using CrossFit204ScoreBoard.Web.Models;
 using FubuMVC.Core.Runtime;
 using FubuMVC.Core.Security;
@@ -20,19 +19,12 @@ namespace CrossFit204ScoreBoard.Web.Security
 
         public AuthorizationRight RightsFor(IFubuRequest request)
         {
-
-            var athleteId = GetAthleteId(request);
+            var athleteId = request.Get<AthleteSpecific>().AthleteId;
             var athlete = session.Load<Athlete>(athleteId);
         
             if (athlete.UserName == secContext.CurrentIdentity.Name)
                 return AuthorizationRight.Allow;
             return AuthorizationRight.Deny;
-        }
-
-        private string GetAthleteId(IFubuRequest request)
-        {
-            var input = request.Get<AthleteSpecific>();
-            return input.AthleteId;
         }
     }
 }

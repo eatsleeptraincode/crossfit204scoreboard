@@ -44,15 +44,6 @@ namespace CrossFit204ScoreBoard.Web.Actions.Scores
     {
         public string AthleteId { get; set; }
         public Workout Workout { get; set; }
-        public decimal Points { get; set; }
         public Score Score { get; set; }
-    }
-
-    public static class Extensions
-    {
-        public static string RavenId<T>(T entity) where T : Entity
-        {
-            return typeof (T).Name.ToLower() + "/" + entity.Id;
-        }
     }
 }

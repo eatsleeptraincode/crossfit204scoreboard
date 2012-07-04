@@ -19,7 +19,7 @@ namespace CrossFit204ScoreBoard.Web.Validation.Rules
             var oldPassword = GetValue(m => m.OldPassword);
             var oldPasswordEncrypted = encryptor.Encrypt(oldPassword);
             if (oldPasswordEncrypted != context.User.Password)
-                RegisterError("Old password doesn't match existing",
+                RegisterError("OldPasswordDoesntMatchEncryptedOne",
                               "The old password you entered doesn't match the existing one",
                               Accessor(m => m.OldPassword));
         }

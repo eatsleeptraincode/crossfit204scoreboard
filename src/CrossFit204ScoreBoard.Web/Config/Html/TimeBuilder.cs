@@ -1,5 +1,3 @@
-using System;
-using System.Linq.Expressions;
 using CrossFit204ScoreBoard.Web.Models;
 using FubuCore.Reflection;
 using FubuMVC.Core.UI.Configuration;
@@ -17,9 +15,12 @@ namespace CrossFit204ScoreBoard.Web.Config.Html
         {
             var time = request.Value<Time>();
             var baseName = request.Accessor.Name;
-            var tag = BuildTimeElementEditorTag(baseName + Minutes, time.Minutes, "##")
-                .Append(new LiteralTag(":"))
-                .Append(BuildTimeElementEditorTag(baseName + Seconds, time.Seconds, "##.#"));
+            var tag = new HtmlTag("span", c =>
+                                              {
+                                                  c.Append(BuildTimeElementEditorTag(baseName + Minutes, time.Minutes, "##"));
+                                                  c.Append(new LiteralTag(" : "));
+                                                  c.Append(BuildTimeElementEditorTag(baseName + Seconds, time.Seconds, "##.#"));
+                                              });
 
             return tag;
         }
@@ -33,13 +34,12 @@ namespace CrossFit204ScoreBoard.Web.Config.Html
         {
             var time = request.Value<Time>();
             var baseName = request.Accessor.Name;
-            var tm = BuildTimeElementDisplayTag(baseName + Minutes, time.Minutes, "##");
-            var ts = BuildTimeElementDisplayTag(baseName + Seconds, time.Seconds, "0#.#");
-
-            var tag = tm
-                .Append(new LiteralTag(":"))
-                .Append(ts);
-
+            var tag = new HtmlTag("span", c =>
+                                              {
+                                                  c.Append(BuildTimeElementDisplayTag(baseName + Minutes, time.Minutes, "##"));
+                                                  c.Append(new LiteralTag(":"));
+                                                  c.Append(BuildTimeElementDisplayTag(baseName + Seconds, time.Seconds, "0#.#"));
+                                              });
             return tag;
         }
 
@@ -49,7 +49,6 @@ namespace CrossFit204ScoreBoard.Web.Config.Html
                                            {
                                                c.Name(propName);
                                                c.Text(value.ToString(format));
-                                               c.AddClass("short");
                                            });
         }
     }

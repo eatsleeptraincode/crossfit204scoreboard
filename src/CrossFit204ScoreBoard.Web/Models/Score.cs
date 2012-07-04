@@ -24,7 +24,7 @@ namespace CrossFit204ScoreBoard.Web.Models
             return Time.IsBetterThan(currentScore.Time)
                    || Weight > currentScore.Weight
                    || Rounds > currentScore.Rounds
-                   || Reps > currentScore.Reps;
+                   || Rounds == currentScore.Rounds && Reps > currentScore.Reps;
         }
     }
 

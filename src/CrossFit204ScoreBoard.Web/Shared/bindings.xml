@@ -17,6 +17,4 @@
   <element name="write_assets">this.WriteAssetTags()</element>
   <element name="partial">this.Partial&lt;@for&gt;()</element>
   <element name="validation_errors">this.Partial&lt;FubuValidation.Notification&gt;()</element>
-
-  <elemet name="message">this.Get&lt;IFlash&gt;().Retrieve&lt;Message&gt;().Text</elemet>
 </bindings>

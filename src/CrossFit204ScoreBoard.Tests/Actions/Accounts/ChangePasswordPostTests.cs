@@ -11,7 +11,18 @@ using Rhino.Mocks;
 namespace CrossFit204ScoreBoard.Tests.Actions.Accounts
 {
     [TestFixture]
-    public class ChangePasswordTests : InteractionContext<ChangePasswordAction>
+    public class ChangePasswordGetTests : InteractionContext<ChangePasswordAction>
+    {
+        [Test]
+        public void ShouldReturnDataForView()
+        {
+            var result = ClassUnderTest.Get(new ChangePasswordRequest());
+            result.ShouldBeOfType<ChangePasswordViewModel>();
+        }
+    }
+
+    [TestFixture]
+    public class ChangePasswordPostTests : InteractionContext<ChangePasswordAction>
     {
         private readonly Athlete athlete = new Athlete();
         private FubuContinuation result;

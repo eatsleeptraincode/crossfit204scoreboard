@@ -9,8 +9,8 @@ formfor model="CreateWorkoutViewModel"
 	br
 	edit property="Workout.TrackWeight" 
 	br
-	edit property="Workout.TrackReps"
-	br
 	edit property="Workout.TrackRounds"
+	br
+	edit property="Workout.TrackReps"
 	br
 	input.btn.btn-inverse type="submit" value="Create Workout"

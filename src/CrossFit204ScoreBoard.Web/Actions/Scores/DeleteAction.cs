@@ -7,12 +7,12 @@ using Raven.Client;
 
 namespace CrossFit204ScoreBoard.Web.Actions.Scores
 {
-    public class DeleteScoreAction
+    public class DeleteAction
     {
         private readonly IDocumentSession session;
         private readonly IUserContext context;
 
-        public DeleteScoreAction(IDocumentSession session, IUserContext context)
+        public DeleteAction(IDocumentSession session, IUserContext context)
         {
             this.session = session;
             this.context = context;

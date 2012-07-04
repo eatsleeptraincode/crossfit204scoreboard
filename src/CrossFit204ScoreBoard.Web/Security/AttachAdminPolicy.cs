@@ -9,7 +9,6 @@ namespace CrossFit204ScoreBoard.Web.Security
     {
         public void Configure(BehaviorGraph graph)
         {
-
             graph
                 .Behaviors
                 .Where(chain => chain.InputType() != null)

@@ -10,5 +10,6 @@
 					=this.DisplayFor(s, m => m.Time)
 				test if="s.Workout.TrackRounds"
 					=this.DisplayFor(s, m => m.Rounds)
+					|&nbsp;
 				test if="s.Workout.TrackReps"
 					=this.DisplayFor(s, m => m.Reps)

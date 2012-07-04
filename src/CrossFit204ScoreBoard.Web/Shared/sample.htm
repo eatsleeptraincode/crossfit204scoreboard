@@ -1,1 +1,73 @@
-﻿
+﻿<html>
+<head>
+    <link href="/_content/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/_content/styles/main.css" rel="stylesheet" type="text/css" />
+    <link href="/_content/styles/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/_content/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/_content/scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/_content/scripts/setup_validation.coffee"></script>
+    <title>CrossFit204 ScoreBoard</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                <h1>
+                    <a href="/">CrossFit204 ScoreBoard</a></h1>
+            </div>
+            <div class="span3">
+                <div class="login">
+                    Welcome&nbsp;rweppler<p>
+                        <a href="/accounts/changepassword">Change Password</a><a href="/accounts/logout">Logout</a></p>
+                </div>
+                <form id="searchForm" method="get" action="/search/results">
+                <br />
+                <input type="text" name="Term" /><br />
+                <input class="btn btn-inverse" type="submit" value="Search" /></form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span9">
+                <nav class="navbar"><a href="/athletes/list">Athletes</a><a href="/workouts/list">Workouts</a><a href="http://crossfit204.com/">CrossFit204.com</a></nav>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="span4">
+            </div>
+            <div class="span8" />
+        </div>
+        <div class="row">
+            <div class="span12">
+                <section id="main">
+                    <h2>Enter Score for:&nbsp;1000m Row</h2>
+                    <br/>
+                    <form id="mainForm" method="post" action="/scores/log" class="form-horizontal">
+                        <input type="hidden" value="athletes-1" name="AthleteId" />
+                        <input type="hidden" value="workouts-10" name="WorkoutId" />
+                        <div class="control-group">
+                            <label class="control-label">Time</label>
+                            <div class="controls">
+                                <span><input type="text" name="ScoreTimeMinutes" class="short" />:<input type="text" name="ScoreTimeSeconds" class="short" /></span>
+                            </div>
+                        </div><br/><input class="btn btn-inverse" type="submit" text="Log Score"/>
+                    </form>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                <p />
+            </div>
+            <div class="span6">
+                <div class="footer">
+                    <a href="mailto:eatsleeptraincode@gmail.com">eatsleeptraincode@gmail.com</a><a href="http://eatsleeptraincode.github.com/">eat.sleep.train.code</a></div>
+            </div>
+            <div class="span3">
+                <p />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

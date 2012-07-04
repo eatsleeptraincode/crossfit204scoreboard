@@ -10,9 +10,21 @@ using Rhino.Mocks;
 namespace CrossFit204ScoreBoard.Tests.Actions.Accounts
 {
     [TestFixture]
-    public class LoginActionTests : InteractionContext<LoginAction>
+    public class LoginActionGetTests : InteractionContext<LoginAction>
     {
-        private Athlete athlete = new Athlete {UserName = "UserName"};
+        [Test]
+        public void ShouldReturnDataForView()
+        {
+            var result = ClassUnderTest.Get(new LoginRequest());
+            result.ShouldBeOfType<LoginViewModel>();
+        }
+    }
+
+
+    [TestFixture]
+    public class LoginActionPostTests : InteractionContext<LoginAction>
+    {
+        private readonly Athlete athlete = new Athlete {UserName = "UserName"};
         private FubuContinuation result;
 
         protected override void beforeEach()

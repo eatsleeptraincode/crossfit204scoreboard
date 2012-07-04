@@ -82,6 +82,6 @@ input[type=text], input[type=password] {
     width: 10em;
 }
 
-.short {
+input[type=text].short {
     width: 3em;
 }

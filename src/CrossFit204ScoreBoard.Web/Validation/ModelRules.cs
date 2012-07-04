@@ -5,7 +5,7 @@ using FubuValidation;
 
 namespace CrossFit204ScoreBoard.Web.Validation
 {
-    public class ModelRule<T> : IValidationRule where T : class
+    public abstract class ModelRule<T> : IValidationRule where T : class
     {
         private ValidationContext ctx;
         public void Validate(ValidationContext context)
@@ -14,7 +14,7 @@ namespace CrossFit204ScoreBoard.Web.Validation
             Validate();
         }
 
-        protected virtual void Validate() { }
+        protected abstract void Validate();
 
         protected string GetValue(Expression<Func<T, object>> expr)
         {

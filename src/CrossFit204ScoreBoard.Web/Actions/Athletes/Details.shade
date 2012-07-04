@@ -15,6 +15,7 @@ h2 =Model.Athlete.FullName
 					h3 =this.DisplayFor(s, m => m.Time)
 				test if="s.Workout.TrackRounds"
 					h3 =this.DisplayFor(s, m => m.Rounds)
+					|&nbsp;
 				test if="s.Workout.TrackReps"
 					h3 =this.DisplayFor(s, m => m.Reps)
 				.whitelink

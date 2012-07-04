@@ -9,7 +9,7 @@ namespace CrossFit204ScoreBoard.Web.Validation.Rules
             var newPassword = GetValue(m => m.NewPassword);
             var confirmedPassword = GetValue(m => m.ConfirmNewPassword);
             if (newPassword != confirmedPassword)
-                RegisterError("New passwords don't match","The two new passwords you entered don't match", Accessor(m => m.ConfirmNewPassword));
+                RegisterError("NewPasswordsDontMatch","The two new passwords you entered don't match", Accessor(m => m.ConfirmNewPassword));
         }
     }
 }

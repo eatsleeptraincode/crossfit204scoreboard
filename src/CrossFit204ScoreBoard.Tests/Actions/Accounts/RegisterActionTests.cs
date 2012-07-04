@@ -10,12 +10,24 @@ using Rhino.Mocks;
 
 namespace CrossFit204ScoreBoard.Tests.Actions.Accounts
 {
+
     [TestFixture]
-    public class RegisterActionTests : InteractionContext<RegisterAction>
+    public class RegisterActionGetTests : InteractionContext<RegisterAction>
+    {
+        [Test]
+        public void ShouldReturnDataForView()
+        {
+            var result = ClassUnderTest.Get(new RegisterRequest());
+            result.ShouldBeOfType<RegisterViewModel>();
+        }
+    }
+
+    [TestFixture]
+    public class RegisterActionPostTests : InteractionContext<RegisterAction>
     {
         private const string Password = "Password";
         private const string EncryptedPassword = "EncryptedPassword";
-        private Athlete athlete = new Athlete {Password = Password};
+        private readonly Athlete athlete = new Athlete {Password = Password};
         private FubuContinuation result;
 
         protected override void beforeEach()
