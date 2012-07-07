@@ -20,8 +20,7 @@ namespace CrossFit204ScoreBoard.Tests
         {
             FubuApplication
                 .For<TestRegistry>()
-                .StructureMapObjectFactory()
-                .Bootstrap();
+                .StructureMapObjectFactory();
         }
     }
 
