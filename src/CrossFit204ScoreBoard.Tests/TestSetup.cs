@@ -45,9 +45,7 @@ namespace CrossFit204ScoreBoard.Tests
             Policies
                 .Add<AttachAuthenticationPolicy>()
                 .Add<AttachUserPolicy>()
-                .Add<AttachAdminPolicy>()
-                .WrapBehaviorChainsWith<RavenTransactionBehaviour>()
-                .WrapBehaviorChainsWith<load_the_current_principal>();
+                .Add<AttachAdminPolicy>();
 
             this.Validation(v =>
             {
