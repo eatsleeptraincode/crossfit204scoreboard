@@ -3,6 +3,7 @@
 .row-fluid
 	.span12
 		h2 =Model.Item.Workout.Name
+		h3 =Model.Item.Workout.Description
 		br
 		=this.LinkTo(new LogScoreRequest{WorkoutId = Model.Item.Workout.Id}).Text("Log Score")
 .row-fluid

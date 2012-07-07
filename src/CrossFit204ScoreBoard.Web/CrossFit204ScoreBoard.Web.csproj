@@ -103,7 +103,6 @@
     <Content Include="Content\styles\bootstrap-responsive.min.css" />
     <Content Include="Content\styles\bootstrap.min.css" />
     <Content Include="Content\styles\main.css" />
-    <Content Include="Content\styles\CrossFit204.css" />
     <Content Include="Global.asax" />
     <Content Include="Shared\bindings.xml">
       <SubType>Designer</SubType>

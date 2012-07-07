@@ -10,9 +10,10 @@ namespace CrossFit204ScoreBoard.Web.Indexes
         public WorkoutsByName()
         {
             Map = workouts => from w in workouts
-                              select new {w.Id, w.Name};
+                              select new {w.Id, w.Name, w.Description};
 
             Indexes.Add(w => w.Name, FieldIndexing.Analyzed);
+            Indexes.Add(w => w.Description, FieldIndexing.Analyzed);
         }
     }
 }

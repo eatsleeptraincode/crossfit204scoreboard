@@ -26,7 +26,9 @@ namespace CrossFit204ScoreBoard.Web.Actions.Search
             var workouts = session
                 .Advanced
                 .LuceneQuery<Workout, WorkoutsByName>()
-                .Search(w => w.Name, request.Term);
+                .Search(w => w.Name, request.Term)
+                .OrElse()
+                .Search(w => w.Description, request.Term);
 
             return new SearchResultsViewModel{Workouts = workouts, Athletes = athletes};
         }
