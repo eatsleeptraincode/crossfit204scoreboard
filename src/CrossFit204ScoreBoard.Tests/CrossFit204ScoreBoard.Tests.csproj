@@ -178,7 +178,6 @@
     <Compile Include="Security\UserContextTests.cs" />
     <Compile Include="Security\UserPolicyTests.cs" />
     <Compile Include="Services\TopScoreUpdaterTests.cs" />
-    <Compile Include="TestSetup.cs" />
     <Compile Include="Validation\RuleSourceTests.cs" />
     <Compile Include="Validation\Rules\LoginRulesTests.cs" />
     <Compile Include="Validation\Rules\NewPasswordShouldMatchTests.cs" />

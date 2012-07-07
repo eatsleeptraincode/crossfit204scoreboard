@@ -4,12 +4,11 @@ using CrossFit204ScoreBoard.Web.Actions.Accounts;
 using CrossFit204ScoreBoard.Web.Actions.Athletes;
 using CrossFit204ScoreBoard.Web.Actions.Scores;
 using CrossFit204ScoreBoard.Web.Actions.Workouts;
+using CrossFit204ScoreBoard.Web.Config;
 using CrossFit204ScoreBoard.Web.Security;
-using FubuMVC.Core.Registration;
 using FubuMVC.Core.Registration.Nodes;
 using FubuTestingSupport;
 using NUnit.Framework;
-using StructureMap;
 
 namespace CrossFit204ScoreBoard.Tests.Security
 {
@@ -21,8 +20,7 @@ namespace CrossFit204ScoreBoard.Tests.Security
         [TestFixtureSetUp]
         public void Init()
         {
-            var container = ObjectFactory.Container;
-            var graph = container.GetInstance<BehaviorGraph>();
+            var graph = new ConfigureFubuMvc().BuildGraph();
             chains = graph.Behaviors.Where(chain => chain.InputType() != null);
         }
 
