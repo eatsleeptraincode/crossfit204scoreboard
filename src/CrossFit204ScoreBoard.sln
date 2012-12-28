@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossFit204ScoreBoard.Web",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossFit204ScoreBoard.Tests", "CrossFit204ScoreBoard.Tests\CrossFit204ScoreBoard.Tests.csproj", "{B1018EFA-4A31-44A6-9EF0-BD7234587F0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossFit204ScoreBoard.IntegrationTests", "CrossFit204ScoreBoard.IntegrationTests\CrossFit204ScoreBoard.IntegrationTests.csproj", "{8658A8F5-774D-4C6B-82CA-0C26858D20DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{B1018EFA-4A31-44A6-9EF0-BD7234587F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1018EFA-4A31-44A6-9EF0-BD7234587F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1018EFA-4A31-44A6-9EF0-BD7234587F0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8658A8F5-774D-4C6B-82CA-0C26858D20DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8658A8F5-774D-4C6B-82CA-0C26858D20DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8658A8F5-774D-4C6B-82CA-0C26858D20DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8658A8F5-774D-4C6B-82CA-0C26858D20DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

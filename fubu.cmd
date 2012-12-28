@@ -1,0 +1,1 @@
+src\packages\FubuMVC.References.0.9.8.1094\tools\fubu.exe %*
