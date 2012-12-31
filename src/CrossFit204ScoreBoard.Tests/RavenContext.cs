@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using System.Threading;
-using CrossFit204ScoreBoard.Web.Actions.Accounts;
 using CrossFit204ScoreBoard.Web.Config;
-using CrossFit204ScoreBoard.Web.Models;
 using CrossFit204ScoreBoard.Web.Validation;
 using FubuTestingSupport;
 using FubuValidation;

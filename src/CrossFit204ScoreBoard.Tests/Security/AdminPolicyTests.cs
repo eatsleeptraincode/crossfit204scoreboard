@@ -10,10 +10,18 @@ using Rhino.Mocks;
 namespace CrossFit204ScoreBoard.Tests.Security
 {
     [TestFixture]
-    public class AdminPolicyTests : RavenContext<AdminPolicy>
+    public class AdminPolicyTests : RavenContextWithIndex<AdminPolicy>
     {
         private const string UserName = "Name";
         private const string UserName2 = "Name2";
+
+
+        protected override void BeforeIndexing()
+        {
+            Session.Store(new Athlete { UserName = UserName2, IsAdmin = true });
+            Session.Store(new Athlete { UserName = UserName, IsAdmin = false });
+            Session.SaveChanges();
+        }
 
         [Test]
         public void NullUserDenied()
@@ -28,8 +36,6 @@ namespace CrossFit204ScoreBoard.Tests.Security
         [Test]
         public void NotAdminUserDenied()
         {
-            Session.Store(new Athlete{UserName = UserName, IsAdmin = false});
-            Session.SaveChanges();
             var identity = MockFor<IIdentity>();
             identity.Stub(i => i.Name).Return(UserName);
             Services.Get<ISecurityContext>().Stub(c => c.CurrentIdentity).Return(identity);
@@ -40,8 +46,6 @@ namespace CrossFit204ScoreBoard.Tests.Security
         [Test]
         public void AdminUserAllowed()
         {
-            Session.Store(new Athlete { UserName = UserName2, IsAdmin = true });
-            Session.SaveChanges();
             var request = MockFor<IFubuRequest>();
             var identity = MockFor<IIdentity>();
             identity.Stub(i => i.Name).Return(UserName2);
