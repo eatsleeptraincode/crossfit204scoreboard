@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using CrossFit204ScoreBoard.Web.Indexes;
 using CrossFit204ScoreBoard.Web.Models;
 using FubuMVC.Core.Runtime;
 using FubuMVC.Core.Security;
@@ -20,7 +21,7 @@ namespace CrossFit204ScoreBoard.Web.Security
         public AuthorizationRight RightsFor(IFubuRequest request)
         {
             var athlete = session
-                .Query<Athlete>()
+                .Query<Athlete,AthletesByUserName>()
                 .SingleOrDefault(a => a.UserName == secContext.CurrentIdentity.Name);
             if (athlete == null || !athlete.IsAdmin)
                 return AuthorizationRight.Deny;
